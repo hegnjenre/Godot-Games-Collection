@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv4pv0d5ff6k1"]
+
+[ext_resource type="Script" path="res://Scripts/General/shop_scene.gd" id="1_q04id"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mfhkr"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_a77ob"]
+font_size = 32
+
+[node name="shopScene" type="Node2D"]
+script = ExtResource("1_q04id")
+
+[node name="shopUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_lock_ = true
+
+[node name="shopTitle" type="Label" parent="shopUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_right = 0.527
+anchor_bottom = 0.111
+offset_left = -0.35202
+offset_right = -0.104004
+offset_bottom = 0.071991
+text = "SHOP"
+label_settings = SubResource("LabelSettings_mfhkr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="coinTubes" type="ItemList" parent="shopUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.152
+anchor_top = 0.114
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.104004
+offset_top = 0.127998
+grow_horizontal = 2
+grow_vertical = 2
+select_mode = 1
+
+[node name="sectionName" type="Label" parent="shopUI/coinTubes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.419
+anchor_right = 0.592
+anchor_bottom = 0.084
+offset_left = -0.363037
+offset_right = -0.384033
+offset_bottom = -0.216003
+pivot_offset = Vector2(85, 0)
+text = "Coin Tubes"
+label_settings = SubResource("LabelSettings_a77ob")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="coinTubeOpen" type="Button" parent="shopUI"]
+layout_mode = 0
+offset_top = 74.0
+offset_right = 162.0
+offset_bottom = 146.0
+text = "Coin Tubes
+"
+
+[node name="exitButton" type="Button" parent="shopUI"]
+layout_mode = 0
+offset_right = 87.0
+offset_bottom = 55.0
+text = "EXIT"
+
+[connection signal="pressed" from="shopUI/coinTubeOpen" to="." method="_on_coin_tube_open_pressed"]
+[connection signal="pressed" from="shopUI/exitButton" to="." method="_on_exit_button_pressed"]

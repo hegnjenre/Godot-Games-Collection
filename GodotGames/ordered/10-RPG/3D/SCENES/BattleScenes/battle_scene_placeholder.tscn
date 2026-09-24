@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8gatbpsdnghv"]
+
+[ext_resource type="Script" path="res://3D/SCENES/BattleScenes/battle_scene_placeholder.gd" id="1_651hi"]
+[ext_resource type="PackedScene" uid="uid://c8em26lvliy4x" path="res://3D/SCENES/Characters/ENEMIES/skeleton.tscn" id="1_eyh5s"]
+[ext_resource type="PackedScene" uid="uid://bpws4j2rdguo0" path="res://3D/SCENES/Characters/PLAYER/main_player.tscn" id="3_g5dut"]
+[ext_resource type="Texture2D" uid="uid://r3cmlx1scvnt" path="res://2D/BATTLESCENEUI/Attack.png" id="4_fety0"]
+[ext_resource type="Texture2D" uid="uid://vxikk6atfc1m" path="res://2D/BATTLESCENEUI/Magic.png" id="5_0t8go"]
+[ext_resource type="Texture2D" uid="uid://dup3r0psteijs" path="res://2D/BATTLESCENEUI/Item.png" id="6_2aj5u"]
+[ext_resource type="Texture2D" uid="uid://bemh0gu4auxxe" path="res://2D/BATTLESCENEUI/Flee.png" id="7_wo306"]
+[ext_resource type="Texture2D" uid="uid://cwoj32vnuq3vh" path="res://2D/BATTLESCENEUI/BattleScreen.png" id="8_f5qci"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75qde"]
+albedo_color = Color(0.415686, 0.415686, 0.415686, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5235u"]
+material = SubResource("StandardMaterial3D_75qde")
+size = Vector2(5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1u0wt"]
+size = Vector3(5, 0.01, 5)
+
+[node name="BattleScene" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.286717, 0)
+script = ExtResource("1_651hi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_5235u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_1u0wt")
+
+[node name="BattleView" type="Camera3D" parent="."]
+transform = Transform3D(0.424433, -0.357612, 0.831847, -0.00600178, 0.917571, 0.397527, -0.905439, -0.173716, 0.387301, 10.0527, 6.62786, 4.99167)
+
+[node name="Skeleton" parent="." instance=ExtResource("1_eyh5s")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -5.66881, 1.54415, 0)
+
+[node name="MainPlayer" parent="." instance=ExtResource("3_g5dut")]
+transform = Transform3D(-2.62268e-07, 0, 6, 0, 6, 0, -6, 0, -2.62268e-07, 6.8348, 2.8963, 0)
+
+[node name="BattleUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Attack" type="TextureButton" parent="BattleUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.145
+anchor_top = 0.092
+anchor_right = 0.303
+anchor_bottom = 0.174
+offset_left = -1.52588e-05
+offset_top = 0.199997
+offset_right = 0.199982
+offset_bottom = 0.399994
+texture_normal = ExtResource("4_fety0")
+stretch_mode = 0
+
+[node name="Magic" type="TextureButton" parent="BattleUI"]
+layout_mode = 0
+offset_left = 524.0
+offset_top = 83.0
+offset_right = 777.0
+offset_bottom = 157.0
+texture_normal = ExtResource("5_0t8go")
+stretch_mode = 0
+
+[node name="Item" type="TextureButton" parent="BattleUI"]
+layout_mode = 0
+offset_left = 821.0
+offset_top = 83.0
+offset_right = 1074.0
+offset_bottom = 157.0
+texture_normal = ExtResource("6_2aj5u")
+stretch_mode = 0
+
+[node name="Flee" type="TextureButton" parent="BattleUI"]
+layout_mode = 0
+offset_left = 1114.0
+offset_top = 83.0
+offset_right = 1367.0
+offset_bottom = 157.0
+texture_normal = ExtResource("7_wo306")
+stretch_mode = 0
+
+[node name="optionsPos" type="Control" parent="BattleUI"]
+anchors_preset = 0
+offset_left = 761.0
+offset_top = 351.0
+offset_right = 761.0
+offset_bottom = 351.0
+
+[node name="BattleScreen" type="Sprite2D" parent="BattleUI"]
+position = Vector2(800, 450)
+scale = Vector2(10, 10)
+texture = ExtResource("8_f5qci")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="BattleUI/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="BattleUI/Magic" to="." method="_on_magic_pressed"]
+[connection signal="pressed" from="BattleUI/Item" to="." method="_on_item_pressed"]
+[connection signal="pressed" from="BattleUI/Flee" to="." method="_on_flee_pressed"]

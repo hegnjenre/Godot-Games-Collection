@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlcvryk2u2yuj"]
+
+[ext_resource type="PackedScene" uid="uid://ceqybvyvp2ikm" path="res://npc.tscn" id="1_o64f0"]
+[ext_resource type="Script" path="res://shopnpc.gd" id="2_kov03"]
+[ext_resource type="PackedScene" uid="uid://byh8mhpl82jra" path="res://shop_front.tscn" id="3_gu4no"]
+
+[node name="SHOPNPC" instance=ExtResource("1_o64f0")]
+script = ExtResource("2_kov03")
+npcType = "sell"
+
+[node name="infoContainer" parent="." index="1"]
+visible = true
+
+[node name="shopFront" parent="." index="2" instance=ExtResource("3_gu4no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.09684, 1.32899, 0)
+visible = false

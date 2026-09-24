@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://byj346xuyrk4h"]
+
+[ext_resource type="PackedScene" uid="uid://dr703pr3q87be" path="res://scenes/mapscene/location.tscn" id="1_8nfgi"]
+[ext_resource type="Texture2D" uid="uid://buanmw04se10q" path="res://pngs/locationpngs/fort.png" id="2_4fapn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlole"]
+size = Vector2(20, 42)
+
+[node name="fortLocation" instance=ExtResource("1_8nfgi")]
+
+[node name="locationSprite" parent="." index="0"]
+texture = ExtResource("2_4fapn")
+
+[node name="collide" parent="clickArea" index="0"]
+shape = SubResource("RectangleShape2D_mlole")

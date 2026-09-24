@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://buy5dcy7e8vm3"]
+
+[ext_resource type="Script" path="res://test_ray_cast.gd" id="1_r3syx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iuamm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7l4nh"]
+
+[node name="Car" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_iuamm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_7l4nh")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, 0.5)
+script = ExtResource("1_r3syx")
+
+[node name="RayCast3D2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 0.5)
+script = ExtResource("1_r3syx")
+
+[node name="RayCast3D3" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -0.5)
+script = ExtResource("1_r3syx")
+
+[node name="RayCast3D4" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, -0.5)
+script = ExtResource("1_r3syx")

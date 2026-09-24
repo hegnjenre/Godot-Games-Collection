@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://dyepgjoh8acw2"]
+
+[ext_resource type="Texture2D" uid="uid://dk1ugl2l4ga11" path="res://2DAssets/Units/Human/Archer/Archer1.png" id="1_xfich"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xfich")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]

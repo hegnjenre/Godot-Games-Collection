@@ -1,0 +1,70 @@
+Checklist:
+
+## big task done
+# little task done
+-- current big task
+- current little task
+! make sure that step is working as intended before moving on
+** info
+
+- applecatcher game basics ##
+	- apples fall #
+	- basket moves #
+	- basket catches #
+	- increases score #
+	- apples get faster over time #
+- subviewport basics understood ##
+	- can resize to fit screen #
+	- can be sized down to fit smaller screen within scene #
+	- still accepts input #
+- simple puzzles (wire connect) ##
+	- tilemap scene for placing wire onto motherboard #
+	- tile scenes #
+	- tiles understand connections #
+	- ui for choosing tile #
+	- can place tile on motherboard #
+	- start and end point #
+	- connection from start to end #
+	- obstacles #
+- table scene with tv monitor ##
+	- table scene #
+	- can click on items on table to start puzzle #
+	- can click on tv to start apple catcher #
+	- left and right button to play in small screen mode #
+	- can fullscreen the tv to play applecatcher with keyboard #
+- preset puzzles and obstacles ##
+	- make tilemap board into seperate scene master ! #
+	- presets as inherited scenes #
+	- track which puzzles have been completed #
+	- create at least 4 puzzles, with placeholder purposes #
+	- click on circle thing to choose puzzle from list of presets #
+	- click on puzzle mat opens chosen puzzle preset #
+	** don't worry about save load puzzles, will do that later on in development **
+___________________________________________________________________________________________________
+- edit top table modules --
+	- make applecatcher edits in applecatcher -
+		0. they should be enabled via a bool, for real time editing
+		1. moving clouds
+		2. rotating apples
+		3. basket speed dial
+		4. points counter
+	- make new scene for placing modules onto table (grid container or self-made?)
+		0. this is mostly ui
+		1. table has limited slots, that can be upgraded?
+	- make sprites for modules and update table sprite for slots on upper table where they will go
+	- puzzles now correspond to a module
+	- make modules available to place after completing corresponding puzzle
+- can edit applecatcher in real time
+- apartment scene
+- can sleep until next day
+- # of puzzles per day before bed
+- food + material requirements
+- outdoor scenes (balcony + shop)
+- cutscenes? narrative?
+___________________________________________________________________________________________________
+
+Notes:
+
+wire puzzles should be able to have multiple end points that need fulfilled, maybe seperate start points
+with different colours that need to match end points? This should fit in with when I make the crossroad
+wire.

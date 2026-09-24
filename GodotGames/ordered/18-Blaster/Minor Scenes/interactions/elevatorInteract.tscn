@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3emkyxu35la0"]
+
+[ext_resource type="PackedScene" uid="uid://bo2sne2jkxc7" path="res://Minor Scenes/interact.tscn" id="1_q7n1d"]
+[ext_resource type="Script" path="res://Minor Scenes/interactions/teleportInteract.gd" id="2_jms68"]
+
+[node name="elevatorInteract" instance=ExtResource("1_q7n1d")]
+script = ExtResource("2_jms68")
+teleLocation = Vector2(498, 340)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyu4lcx2wh5bk"]
+
+[ext_resource type="Texture2D" uid="uid://bvfshr2rrlf81" path="res://2D/BATTLESCENEUI/Default.png" id="1_nnymx"]
+[ext_resource type="FontFile" uid="uid://dbpxwody20tgk" path="res://2D/TEXT FONT/constantia.ttf" id="2_1nrqv"]
+[ext_resource type="Script" path="res://3D/SCENES/BattleScenes/attack_default.gd" id="2_8fjjc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rgaqb"]
+line_spacing = 4.0
+font = ExtResource("2_1nrqv")
+font_size = 28
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="attackDefault" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 0.12
+anchor_bottom = 0.062
+offset_right = -152.0
+offset_bottom = -15.8
+texture_normal = ExtResource("1_nnymx")
+script = ExtResource("2_8fjjc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.125
+anchor_right = 0.964
+anchor_bottom = 0.893
+offset_left = 0.0079999
+offset_right = -0.0880127
+offset_bottom = -0.00800323
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_rgaqb")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

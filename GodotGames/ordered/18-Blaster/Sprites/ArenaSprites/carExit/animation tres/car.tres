@@ -1,0 +1,43 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://8x8tb15lr4bu"]
+
+[ext_resource type="Texture2D" uid="uid://6giquc0pcig2" path="res://Sprites/ArenaSprites/carExit/sprites/car5.png" id="1_1x2km"]
+[ext_resource type="Texture2D" uid="uid://dgwkptqvdin8i" path="res://Sprites/ArenaSprites/carExit/sprites/car3.png" id="2_3mepc"]
+[ext_resource type="Texture2D" uid="uid://b4lv24vosh2n7" path="res://Sprites/ArenaSprites/carExit/sprites/car4.png" id="3_vubs4"]
+[ext_resource type="Texture2D" uid="uid://bwgxq6g84o4i2" path="res://Sprites/ArenaSprites/carExit/sprites/car1.png" id="4_1endi"]
+[ext_resource type="Texture2D" uid="uid://b24abga67hy2j" path="res://Sprites/ArenaSprites/carExit/sprites/car2.png" id="5_rlyol"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1x2km")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3mepc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vubs4")
+}],
+"loop": true,
+"name": &"driving",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1endi")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1endi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rlyol")
+}],
+"loop": false,
+"name": &"start",
+"speed": 5.0
+}]

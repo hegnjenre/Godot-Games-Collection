@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7o8tvvlb3d72"]
+
+[ext_resource type="Texture2D" uid="uid://blokv7xj3dbb5" path="res://pngs/locFlag.png" id="1_j6gex"]
+[ext_resource type="Script" path="res://scenes/player/loc_node.gd" id="1_urkeb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyagf"]
+size = Vector2(2, 2)
+
+[node name="locNode" type="Node2D"]
+script = ExtResource("1_urkeb")
+
+[node name="flag" type="Sprite2D" parent="."]
+position = Vector2(14, -12)
+texture = ExtResource("1_j6gex")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cyagf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0c4uchp5genq"]
+
+[ext_resource type="PackedScene" uid="uid://0afxmvaeckoj" path="res://assets/obstacleScenes/obstacle.tscn" id="1_a5l6a"]
+[ext_resource type="Texture2D" uid="uid://d37iyo5wwoihk" path="res://assets/obstacle/crate.png" id="2_327vn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ub8ot"]
+size = Vector2(30, 30)
+
+[node name="crate" instance=ExtResource("1_a5l6a")]
+scale = Vector2(0.85, 0.85)
+
+[node name="stBody" parent="." index="0"]
+collision_layer = 257
+collision_mask = 257
+
+[node name="sprite" parent="stBody" index="0"]
+texture = ExtResource("2_327vn")
+
+[node name="Collide" parent="stBody" index="1"]
+shape = SubResource("RectangleShape2D_ub8ot")

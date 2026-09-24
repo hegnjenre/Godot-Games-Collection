@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://mob83al81x28"]
+
+[ext_resource type="PackedScene" uid="uid://btxrttu12hp6n" path="res://scenes/puzzles/master_wire.tscn" id="1_ftv0s"]
+[ext_resource type="SpriteFrames" uid="uid://kv2ww5shxjjj" path="res://sprites/spriteframes/wires/LR.tres" id="2_xdys7"]
+
+[node name="LRWire" unique_id=781965506 instance=ExtResource("1_ftv0s")]
+validDirections = {
+"down": false,
+"left": true,
+"right": true,
+"up": false
+}
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1644814822]
+sprite_frames = ExtResource("2_xdys7")
+animation = &"0"
+autoplay = "0"

@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2hjiduqr4q0c"]
+
+[ext_resource type="Texture2D" uid="uid://b2tdkiwaophfx" path="res://Assets/pngs/textBoxes/textboxDebug.png" id="1_5umyk"]
+
+[node name="infoLabelSpriteCoin" type="Sprite2D"]
+visible = false
+position = Vector2(0, -209)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_5umyk")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -160.0
+offset_right = 320.0
+offset_bottom = 160.0
+metadata/_edit_lock_ = true
+
+[node name="Info" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.322
+anchor_right = 0.691
+anchor_bottom = 0.875
+offset_left = 6.08
+offset_top = -0.0400085
+offset_right = -0.240021
+offset_bottom = -2.0
+autowrap_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.184
+anchor_top = 0.056
+anchor_right = 0.648
+anchor_bottom = 0.247
+offset_left = 0.23999
+offset_top = 0.0799999
+offset_right = 0.279999
+offset_bottom = -0.0400009
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="flipButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 476.25
+offset_top = 48.75
+offset_right = 577.25
+offset_bottom = 101.75
+text = "Flip"

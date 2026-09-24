@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://gwjnxomoouuh"]
+
+[ext_resource type="PackedScene" uid="uid://faawqnmfbr6" path="res://Assets/items/apparel.tscn" id="1_bx748"]
+
+[node name="noHelmet" instance=ExtResource("1_bx748")]

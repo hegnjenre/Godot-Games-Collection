@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmt0xowvs4lmg"]
+
+[ext_resource type="PackedScene" uid="uid://brupul73nukc3" path="res://scenes/enemy/ai_super.tscn" id="1_arqlm"]
+[ext_resource type="Script" path="res://scripts/friendly/aiFriendlyDrone.gd" id="2_7sau0"]
+[ext_resource type="SpriteFrames" uid="uid://bfp0xmhet1wru" path="res://spriteframes/friendly/playerdrone.tres" id="3_4ohgk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5j22e"]
+size = Vector2(4, 6)
+
+[node name="aiFriendly" instance=ExtResource("1_arqlm")]
+collision_mask = 0
+script = ExtResource("2_7sau0")
+topSpeed = 250.0
+accRate = 10.0
+slowRate = 15.0
+detectRad = 9999.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("3_4ohgk")
+frame_progress = 0.0728239
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_5j22e")

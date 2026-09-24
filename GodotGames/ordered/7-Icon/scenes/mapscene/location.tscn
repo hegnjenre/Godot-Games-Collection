@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr703pr3q87be"]
+
+[ext_resource type="Script" path="res://scenes/mapscene/location.gd" id="1_e74so"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dovx"]
+radius = 9.0
+
+[node name="location" type="Node2D"]
+script = ExtResource("1_e74so")
+
+[node name="locationSprite" type="Sprite2D" parent="."]
+
+[node name="clickArea" type="Area2D" parent="."]
+
+[node name="collide" type="CollisionShape2D" parent="clickArea"]
+shape = SubResource("CircleShape2D_0dovx")
+
+[node name="UI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -262.0
+offset_right = 224.0
+offset_bottom = -1.0
+metadata/_edit_lock_ = true
+
+[node name="Travel" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 146.0
+offset_bottom = 83.0
+text = "Travel"
+metadata/_edit_lock_ = true
+
+[node name="Info" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 94.0
+offset_right = 146.0
+offset_bottom = 166.0
+text = "Info"
+metadata/_edit_lock_ = true
+
+[node name="Enter" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 176.0
+offset_right = 146.0
+offset_bottom = 248.0
+text = "Enter"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="UI/Travel" to="." method="_on_travel_pressed"]
+[connection signal="pressed" from="UI/Info" to="." method="_on_info_pressed"]
+[connection signal="pressed" from="UI/Enter" to="." method="_on_enter_pressed"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://4mwineynycwm"]
+
+[ext_resource type="PackedScene" uid="uid://c51mm0wne1iep" path="res://2DAssets/Units/unit_3d.tscn" id="1_iroym"]
+[ext_resource type="SpriteFrames" uid="uid://dyepgjoh8acw2" path="res://2DAssets/Units/Human/Archer/archer_unit.tres" id="2_wuhtn"]
+[ext_resource type="Script" path="res://scripts/archer_unit.gd" id="3_x8b5y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_md63p"]
+size = Vector3(1.17968, 1.38833, 0.678917)
+
+[node name="archerUnit3D" instance=ExtResource("1_iroym")]
+sprite_frames = ExtResource("2_wuhtn")
+animation = &"idle"
+script = ExtResource("3_x8b5y")
+health = 5
+damage = 1
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_md63p")

@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhu063uhco6x4"]
+
+[ext_resource type="PackedScene" uid="uid://cdb4g5u6dmauh" path="res://car.tscn" id="1_eg0wc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xlnx6"]
+albedo_color = Color(0.4, 0.4, 0.4, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_piqcn"]
+material = SubResource("StandardMaterial3D_xlnx6")
+size = Vector2(200, 1000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2yipg"]
+size = Vector3(200, 0.01, 1000)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hc3x0"]
+height = 4.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_34bb1"]
+size = Vector3(10, 12, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qdnfb"]
+size = Vector3(10, 12, 5)
+
+[node name="test" type="Node3D"]
+
+[node name="ground" type="StaticBody3D" parent="." groups=["ground"]]
+collision_layer = 9
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground" groups=["ground"]]
+mesh = SubResource("PlaneMesh_piqcn")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground" groups=["ground"]]
+shape = SubResource("BoxShape3D_2yipg")
+
+[node name="distanceMark" type="Node3D" parent="ground"]
+
+[node name="MeshInstance3D0" type="MeshInstance3D" parent="ground/distanceMark"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 500)
+mesh = SubResource("CylinderMesh_hc3x0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="ground/distanceMark"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 400)
+mesh = SubResource("CylinderMesh_hc3x0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ground/distanceMark"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 300)
+mesh = SubResource("CylinderMesh_hc3x0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="ground/distanceMark"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 200)
+mesh = SubResource("CylinderMesh_hc3x0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="ground/distanceMark"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 100)
+mesh = SubResource("CylinderMesh_hc3x0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="ground/distanceMark"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 0)
+mesh = SubResource("CylinderMesh_hc3x0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="ground/distanceMark"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -100)
+mesh = SubResource("CylinderMesh_hc3x0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="ground/distanceMark"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -200)
+mesh = SubResource("CylinderMesh_hc3x0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="ground/distanceMark"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -300)
+mesh = SubResource("CylinderMesh_hc3x0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="ground/distanceMark"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -400)
+mesh = SubResource("CylinderMesh_hc3x0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="ground/distanceMark"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -500)
+mesh = SubResource("CylinderMesh_hc3x0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ground"]
+transform = Transform3D(1, 0, 0, 0, -0.375124, -0.926975, 0, 0.926975, -0.375124, 1.48379, -0.354756, 0)
+mesh = SubResource("BoxMesh_34bb1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ground"]
+transform = Transform3D(1, 0, 0, 0, -0.375124, -0.926975, 0, 0.926975, -0.375124, 1.48379, -0.354756, 0)
+shape = SubResource("BoxShape3D_qdnfb")
+
+[node name="Car" parent="." instance=ExtResource("1_eg0wc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 493.507)

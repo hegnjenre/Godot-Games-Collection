@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://byft6b7p3cp8"]
+
+[ext_resource type="Texture2D" uid="uid://ds4a4pss2tl8l" path="res://2DAssets/Units/Human/Soldier/Soldier1.png" id="1_ytl7j"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ytl7j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]

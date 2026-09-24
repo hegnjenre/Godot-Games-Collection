@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://e1jabjigoo74"]
+
+[ext_resource type="Script" path="res://npcs/pathNodes/path_node.gd" id="1_i3a60"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kse02"]
+albedo_color = Color(1, 0.0117647, 0.0117647, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pil74"]
+material = SubResource("StandardMaterial3D_kse02")
+
+[node name="pathNode" type="Node3D" groups=["pathNode"]]
+script = ExtResource("1_i3a60")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_pil74")

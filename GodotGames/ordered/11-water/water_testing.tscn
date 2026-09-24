@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmal33lfgya7u"]
+
+[ext_resource type="PackedScene" uid="uid://dkha17f3pb68p" path="res://water_section.tscn" id="1_g8oft"]
+[ext_resource type="PackedScene" uid="uid://ca547eokmn2r6" path="res://ball.tscn" id="2_7ic61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc0x2"]
+size = Vector2(21, 611.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5avvv"]
+size = Vector2(62, 29)
+
+[node name="waterTesting" type="Node2D"]
+
+[node name="waterSection" parent="." instance=ExtResource("1_g8oft")]
+height = 68.46
+
+[node name="ball" parent="." instance=ExtResource("2_7ic61")]
+position = Vector2(0, -156)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -185)
+zoom = Vector2(1.75, 1.75)
+
+[node name="bounds" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounds"]
+position = Vector2(38, -306)
+shape = SubResource("RectangleShape2D_xc0x2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bounds"]
+position = Vector2(-38, -306)
+shape = SubResource("RectangleShape2D_xc0x2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="bounds"]
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_5avvv")
+
+[connection signal="body_entered" from="ball" to="ball" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="ball" to="ball" method="_on_body_exited" flags=18]

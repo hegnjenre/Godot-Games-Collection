@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://c51p812rhk0us"]
+
+[ext_resource type="Script" path="res://3D/SCENES/Characters/PLAYER/playercharacter.gd" id="1_wbxi2"]
+
+[node name="PlayerCharacter" type="Node3D" groups=["playerChar"]]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0.458176, 0)
+script = ExtResource("1_wbxi2")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.004
+texture_filter = 0
+
+[node name="CamPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CamPoint"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -1, 0, 1)
+
+[node name="optionCam" type="Camera3D" parent="."]
+transform = Transform3D(0.935401, 0, -0.353589, 0, 1, 0, 0.353589, 0, 0.935401, -0.44589, 0.0658799, 0.544938)
+fov = 44.0
+
+[node name="diceCam" type="Camera3D" parent="."]
+transform = Transform3D(-6.82833e-09, 0.0411496, -0.161507, 1.79327e-09, 0.161507, 0.0411496, 0.166667, -5.18499e-11, -7.05969e-09, -1.27735, 0.128934, -0.622175)
+fov = 44.9498
+
+[node name="rollPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0578662, -0.539619)

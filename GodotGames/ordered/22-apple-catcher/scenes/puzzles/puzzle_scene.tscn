@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://der3msb5av76t"]
+
+[ext_resource type="Script" uid="uid://dfdbor31l5s7k" path="res://scripts/puzzles/puzzle_scene.gd" id="1_xwvin"]
+
+[node name="puzzleScene" type="Node2D" unique_id=1638815573]
+script = ExtResource("1_xwvin")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1476302940]
+position = Vector2(640, 360)
+metadata/_edit_lock_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=564037647]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 408.0
+offset_bottom = 608.0
+metadata/_edit_lock_ = true
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1511789392]
+layout_mode = 2
+columns = 2
+
+[node name="Control" type="Control" parent="." unique_id=250345882]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 616.0
+offset_right = 408.0
+offset_bottom = 707.0
+
+[node name="Button" type="Button" parent="Control" unique_id=1888757955]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.7166138e-05
+grow_horizontal = 2
+grow_vertical = 2
+text = "Send Signal"
+
+[node name="Timer" type="Timer" parent="." unique_id=1255932258]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

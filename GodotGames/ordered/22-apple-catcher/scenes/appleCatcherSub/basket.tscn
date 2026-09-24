@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c06h1rpf5pavv"]
+
+[ext_resource type="Script" uid="uid://ca8hn2rd85jac" path="res://scripts/appleCatcherSub/basket.gd" id="1_ju7us"]
+[ext_resource type="Texture2D" uid="uid://c8csyhsmrimpu" path="res://sprites/appleCatcher/basket.png" id="1_s78wt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuxof"]
+size = Vector2(32, 10)
+
+[node name="basket" type="CharacterBody2D" unique_id=328228126 groups=["basket"]]
+scale = Vector2(4, 4)
+script = ExtResource("1_ju7us")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=458723483 groups=["basket"]]
+texture = ExtResource("1_s78wt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384177353 groups=["basket"]]
+shape = SubResource("RectangleShape2D_wuxof")

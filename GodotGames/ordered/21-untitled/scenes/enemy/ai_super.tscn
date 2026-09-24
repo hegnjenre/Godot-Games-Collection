@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://brupul73nukc3"]
+
+[ext_resource type="Script" uid="uid://d4bf034jwtyq3" path="res://scripts/enemy/aiSuper.gd" id="1_887yn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oulvw"]
+
+[node name="aiSuper" type="CharacterBody2D" unique_id=755029553]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_887yn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1415818122]
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1167496659]
+
+[node name="Timer" type="Timer" parent="." unique_id=486282088]
+one_shot = true
+
+[node name="detection" type="Area2D" parent="." unique_id=966531345]
+collision_mask = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection" unique_id=711194205]
+shape = SubResource("CircleShape2D_oulvw")
+
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="detection" to="." method="_on_detection_body_exited"]

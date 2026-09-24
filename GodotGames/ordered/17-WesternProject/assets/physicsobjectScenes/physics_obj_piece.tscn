@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm483u5ul7kro"]
+
+[ext_resource type="Script" path="res://assets/physicsobjectScenes/physics_obj_piece.gd" id="1_mfip4"]
+
+[node name="PhysicsObjPiece" type="RigidBody2D"]
+inertia = 30.0
+script = ExtResource("1_mfip4")
+
+[node name="sprite" type="Sprite2D" parent="."]
+
+[node name="collide" type="CollisionShape2D" parent="."]

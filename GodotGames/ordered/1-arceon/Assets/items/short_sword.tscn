@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://myrwpiswj0x2"]
+
+[ext_resource type="PackedScene" uid="uid://deb34w6jvv40b" path="res://Assets/items/weapon.tscn" id="1_3eiut"]
+[ext_resource type="PackedScene" uid="uid://dfdjrkgj0lcy7" path="res://Assets/swrod.glb" id="2_hpv1b"]
+
+[node name="Short Sword" node_paths=PackedStringArray("itemMesh") instance=ExtResource("1_3eiut")]
+damageMult = 1.0
+defenceMult = 1.1
+damage = 3
+itemMesh = NodePath("swrod")
+title = "Short Sword"
+info = "A standard short sword."
+
+[node name="swrod" parent="." index="2" instance=ExtResource("2_hpv1b")]
+transform = Transform3D(0.1, 0, 0, 0, -0.00037525, 0.0999993, 0, -0.0999993, -0.00037525, 0, 0, 0.290829)

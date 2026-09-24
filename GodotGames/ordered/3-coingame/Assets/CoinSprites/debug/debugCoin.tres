@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://c1w0avnkf2k1b"]
+
+[ext_resource type="Texture2D" uid="uid://dnxuuno4ykacq" path="res://Assets/pngs/debug/debugCoin1.png" id="1_wdd8u"]
+[ext_resource type="Texture2D" uid="uid://cjpixx1upxqlg" path="res://Assets/pngs/debug/debugCoin2.png" id="2_kortl"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wdd8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kortl")
+}],
+"loop": true,
+"name": &"flip",
+"speed": 8.0
+}]

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b64javt8p0cat"]
+
+[ext_resource type="Script" uid="uid://7uvuajjslnia" path="res://scripts/appleCatcherSub/apple.gd" id="1_365qa"]
+[ext_resource type="Texture2D" uid="uid://c1kgbqsk4c4ts" path="res://sprites/appleCatcher/apple.png" id="1_rpmo3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rpmo3"]
+radius = 6.0
+
+[node name="apple" type="CharacterBody2D" unique_id=2081527075]
+scale = Vector2(2, 2)
+script = ExtResource("1_365qa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=722488974]
+texture = ExtResource("1_rpmo3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=596637141]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=195170694]
+shape = SubResource("CircleShape2D_rpmo3")
+
+[node name="Timer" type="Timer" parent="." unique_id=1360429817]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

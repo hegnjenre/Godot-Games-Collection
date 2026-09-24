@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dolbev65odgca"]
+
+[ext_resource type="PackedScene" uid="uid://0k8eyyrybwaj" path="res://player.tscn" id="1_ewsce"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v12gp"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_0d5c0"]
+sky_material = SubResource("ProceduralSkyMaterial_v12gp")
+
+[sub_resource type="Environment" id="Environment_4qntl"]
+background_mode = 2
+sky = SubResource("Sky_0d5c0")
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ukllr"]
+size = Vector2(150, 150)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxj6l"]
+size = Vector3(152.447, 0.01, 150.992)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qlndu"]
+
+[node name="home" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0736181, 1.25313, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 48.1611, -28.6852)
+light_color = Color(1, 1, 0.768627, 1)
+light_energy = 0.39
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4qntl")
+
+[node name="ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ukllr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_fxj6l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
+
+[node name="Player" parent="." instance=ExtResource("1_ewsce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5537, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.68925, 2.1346, 19.5006)
+mesh = SubResource("BoxMesh_qlndu")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.838813, 0.544419, 0, -0.544419, 0.838813, 0, 17.6741, 14.856)

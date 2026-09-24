@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdsp44b8w4cu0"]
+
+[ext_resource type="PackedScene" uid="uid://dn6oxb0j2x7kb" path="res://Minor Scenes/Blocks/defaultBlock.tscn" id="1_3a3nd"]
+[ext_resource type="Texture2D" uid="uid://dqc5rh6h313r1" path="res://Sprites/ArenaSprites/blocks/GoldBlock.png" id="2_p6bpj"]
+
+[node name="defaultBlock" instance=ExtResource("1_3a3nd")]
+pName = "G"
+bits = 50
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_p6bpj")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://i0v5ti8uk7qt"]
+
+[ext_resource type="Texture2D" uid="uid://dinj4wnh5n00t" path="res://assets/dish.png" id="1_2gcul"]
+[ext_resource type="Script" path="res://dish.gd" id="1_wmh86"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4d82s"]
+radius = 16.0312
+
+[node name="Dish" type="Node2D"]
+script = ExtResource("1_wmh86")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2gcul")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_4d82s")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)

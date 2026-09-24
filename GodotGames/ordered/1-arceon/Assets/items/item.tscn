@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://snrbnir3wyoq"]
+
+[ext_resource type="Script" path="res://Assets/items/item.gd" id="1_7yc7g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jfua3"]
+size = Vector3(0.0794507, 0.175406, 0.904203)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5n2r0"]
+albedo_color = Color(0.631373, 0.631373, 0.631373, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4r0vk"]
+material = SubResource("StandardMaterial3D_5n2r0")
+size = Vector2(1, 1.5)
+
+[node name="item" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_7yc7g")
+
+[node name="itemCollide" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jfua3")
+
+[node name="itemInfo" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.13061, 0)
+
+[node name="infoBack" type="MeshInstance3D" parent="itemInfo"]
+transform = Transform3D(1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_4r0vk")
+
+[node name="titleText" type="Label3D" parent="itemInfo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.602, 0.01)
+font_size = 16
+outline_size = 8
+
+[node name="infoText" type="Label3D" parent="itemInfo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.448389, 0.395896, 0.01)
+font_size = 12
+outline_size = 6
+horizontal_alignment = 0
+autowrap_mode = 2

@@ -1,0 +1,165 @@
+[gd_scene load_steps=5 format=3 uid="uid://0k8eyyrybwaj"]
+
+[ext_resource type="PackedScene" uid="uid://bfn2gnt078edk" path="res://Assets/lowPolyTest.glb" id="1_o133y"]
+[ext_resource type="Script" path="res://player.gd" id="1_oeyhm"]
+[ext_resource type="Texture2D" uid="uid://dxwlbjubmxf38" path="res://Assets/dialogue/textBox.png" id="3_1528k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1op7w"]
+radius = 0.686232
+height = 4.93863
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(-2.38419e-07, 0, 1, 0, 1, 0, -1, 0, -2.38419e-07, 0, 0.172181, 0)
+script = ExtResource("1_oeyhm")
+
+[node name="playerCollide" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.46044, 0)
+shape = SubResource("CapsuleShape3D_1op7w")
+
+[node name="lowPolyTest" parent="." instance=ExtResource("1_o133y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.34861, 0)
+
+[node name="symbolNode" type="Node3D" parent="."]
+visible = false
+
+[node name="interactSymbol" type="Label3D" parent="symbolNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.18706, 0)
+pixel_size = 0.05
+billboard = 1
+text = "E"
+uppercase = true
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Inv" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 85.0
+offset_bottom = 26.0
+text = "Inventory:"
+
+[node name="Inventory" type="Label" parent="UI"]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 185.0
+offset_bottom = 60.0
+
+[node name="shopExit" type="Button" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 1728.0
+offset_top = 64.0
+offset_right = 1856.0
+offset_bottom = 128.0
+text = "Exit
+"
+
+[node name="battleUI" type="Control" parent="UI"]
+visible = false
+anchors_preset = 0
+offset_top = 728.0
+offset_right = 1920.0
+offset_bottom = 984.0
+
+[node name="backG" type="Sprite2D" parent="UI/battleUI"]
+position = Vector2(960, 125.5)
+scale = Vector2(28, 6.65625)
+texture = ExtResource("3_1528k")
+
+[node name="battleTitle" type="Label" parent="UI/battleUI"]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 32.0
+offset_right = 1024.0
+offset_bottom = 59.0
+pivot_offset = Vector2(64, 0)
+text = "Battle Options:"
+horizontal_alignment = 1
+
+[node name="back" type="Button" parent="UI/battleUI"]
+visible = false
+layout_mode = 0
+offset_left = 216.0
+offset_top = 48.0
+offset_right = 304.0
+offset_bottom = 79.0
+text = "Back
+"
+
+[node name="options" type="Node2D" parent="UI/battleUI"]
+position = Vector2(0, -405)
+
+[node name="physicalButton" type="Button" parent="UI/battleUI/options"]
+offset_left = 256.0
+offset_top = 501.0
+offset_right = 576.0
+offset_bottom = 581.0
+pivot_offset = Vector2(80, 0)
+text = "Physical"
+
+[node name="faithButton" type="Button" parent="UI/battleUI/options"]
+offset_left = 800.0
+offset_top = 501.0
+offset_right = 1120.0
+offset_bottom = 581.0
+pivot_offset = Vector2(80, 0)
+text = "Faith"
+
+[node name="runButton" type="Button" parent="UI/battleUI/options"]
+offset_left = 1344.0
+offset_top = 501.0
+offset_right = 1664.0
+offset_bottom = 581.0
+pivot_offset = Vector2(80, 0)
+text = "Run Away"
+
+[node name="physical" type="Node2D" parent="UI/battleUI"]
+visible = false
+position = Vector2(0, -405)
+
+[node name="regularAttack" type="Button" parent="UI/battleUI/physical"]
+offset_left = 192.0
+offset_top = 501.0
+offset_right = 512.0
+offset_bottom = 581.0
+text = "Attack"
+
+[node name="regularDefend" type="Button" parent="UI/battleUI/physical"]
+offset_left = 576.0
+offset_top = 501.0
+offset_right = 896.0
+offset_bottom = 581.0
+text = "Defend"
+
+[node name="specialAttack" type="Button" parent="UI/battleUI/physical"]
+offset_left = 1408.0
+offset_top = 501.0
+offset_right = 1728.0
+offset_bottom = 581.0
+text = "*attackspecial*"
+
+[node name="specialDefend" type="Button" parent="UI/battleUI/physical"]
+offset_left = 1024.0
+offset_top = 501.0
+offset_right = 1344.0
+offset_bottom = 581.0
+text = "*defendspecial*"
+
+[node name="inventory" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 422.33, -11.2427, -296.44)
+
+[node name="attackCooldown" type="Timer" parent="."]
+
+[connection signal="pressed" from="UI/shopExit" to="." method="_on_shop_exit_pressed"]
+[connection signal="pressed" from="UI/battleUI/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="UI/battleUI/options/physicalButton" to="." method="_on_physical_button_pressed"]
+[connection signal="pressed" from="UI/battleUI/options/faithButton" to="." method="_on_faith_button_pressed"]
+[connection signal="pressed" from="UI/battleUI/options/runButton" to="." method="_on_run_button_pressed"]
+[connection signal="pressed" from="UI/battleUI/physical/regularAttack" to="." method="_on_regular_attack_pressed"]
+[connection signal="pressed" from="UI/battleUI/physical/regularDefend" to="." method="_on_regular_defend_pressed"]
+[connection signal="pressed" from="UI/battleUI/physical/specialAttack" to="." method="_on_special_attack_pressed"]
+[connection signal="pressed" from="UI/battleUI/physical/specialDefend" to="." method="_on_special_defend_pressed"]
+[connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]

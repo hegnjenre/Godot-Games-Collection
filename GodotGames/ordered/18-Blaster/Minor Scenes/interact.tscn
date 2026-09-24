@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo2sne2jkxc7"]
+
+[ext_resource type="Script" path="res://Minor Scenes/interactScript.gd" id="1_hrrr5"]
+[ext_resource type="LabelSettings" uid="uid://b6fqulp7e70sw" path="res://Text/LabelSettings/smallText.tres" id="2_x7j1m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ww220"]
+size = Vector2(12, 11)
+
+[node name="interact" type="Area2D"]
+script = ExtResource("1_hrrr5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ww220")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 10
+offset_top = -18.0
+offset_right = 6.0
+offset_bottom = -1.0
+text = "E"
+label_settings = ExtResource("2_x7j1m")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

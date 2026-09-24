@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://655o43wycom6"]
+
+[ext_resource type="PackedScene" uid="uid://c5wxq1bbynfxt" path="res://Assets/items/defenceItem.tscn" id="1_qaodr"]
+
+[node name="Unarmed (defence)" instance=ExtResource("1_qaodr")]
+damageMult = 0.0
+defenceMult = 0.0
+defence = 0
+
+[node name="itemInfo" parent="." index="1"]
+visible = false

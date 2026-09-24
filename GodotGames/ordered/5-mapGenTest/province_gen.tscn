@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj3ro1ti48pt0"]
+
+[ext_resource type="Script" path="res://province_gen.gd" id="1_vbhlb"]
+
+[node name="provinceGen" type="Node2D"]
+position = Vector2(288, 162)
+scale = Vector2(3, 3)
+script = ExtResource("1_vbhlb")
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(95.6667, 78.6667)

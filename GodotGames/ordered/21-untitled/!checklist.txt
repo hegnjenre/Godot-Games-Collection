@@ -1,0 +1,43 @@
+Checklist:
+/ basic ai target finding, rotation, and movement #
+/ player movement and direction facing #
+/ basic player drone ai seperate from enemy ai #
+/ drone min radius from player, and eachother
+
+
+/ drone chose location within idle radius rather than all at same point #
+// chunks and tile radius #
+// enemy chose tile within radius #
+// enemy follow player towards same tile #
+// enemy choose new tile after timer?    ¦
+/ basic player buildings --
+// basic/debug building sprites #
+// building superclass and debug child #
+// buildings can produce a resource, either from the ground or from an input #
+// resource channels move resources between buildings # 
+/// a building has 1 resource channel input and output #
+/// a resource channel can have one or many destinations, but only one origin #
+/// a resource channel can connect to a preexisting channel, if going to the same destination #
+/// the time taken to travel on the channel is added to the time taken by it's destination building
+/// - to produce its resource #
+// buildings require power to run #
+// buildings only produce if resource channel is not full (also means resource channels need a max) #
+// building view ---
+/// ui  #
+/// player can place buildings on grid  #
+/// player can create new channels + channel indicator ui #/# --
+    (use A star pathing to make geometrical lines? or free place between tiles?)
+// resource counter ui #
+// splitting resource channel between two destinations? #
+// placing buildings costs resources
+/ basic enemy/player attacks and damage
+/ backdrop/ground
+/ ai pathfinding around obstacles/buildings
+/ different enemy types
+/ different player drone types
+/ resource/money/hub produce system (idea not very developed)
+/ basic roguelike drone upgrade framework
+/ 'quest' framework
+/ upgrades development -- sprite + code
+/ enemy bosses / progression
+///////////////////////////////////////////////////////////////

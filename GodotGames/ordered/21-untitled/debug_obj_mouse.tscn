@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://m60ifhmsy7in"]
+
+[ext_resource type="PackedScene" uid="uid://d03e748xha2m0" path="res://debug_obj.tscn" id="1_2727f"]
+[ext_resource type="Script" uid="uid://bnyrr6rem83a0" path="res://debug_obj_mouse.gd" id="2_jnlt3"]
+
+[node name="debugObjMouse" unique_id=2000392083 instance=ExtResource("1_2727f")]
+script = ExtResource("2_jnlt3")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://deyqd0qrol6fs"]
+
+[ext_resource type="PackedScene" uid="uid://bfn2gnt078edk" path="res://Assets/lowPolyTest.glb" id="1_am6ti"]
+
+[node name="lowPolyTest" instance=ExtResource("1_am6ti")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/1/position = Vector3(0.000303213, 0.154691, -0.0739417)
+bones/1/rotation = Quaternion(-0.179565, 4.37861e-05, 0.00166969, 0.983745)
+bones/1/scale = Vector3(1, 1, 1)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.088066, -0.0901544, -0.711873, 0.690908)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0, 0, 0, 1)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.094631, -0.0293527, -0.0363732, 0.994415)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(0.240475, 0.00647497, -0.204525, 0.936475)
+bones/13/rotation = Quaternion(0.0872299, 0.0894485, 0.713136, 0.689802)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(0, 0, 0, 1)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(0.120395, 0.0404067, 0.0374194, 0.991197)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(0.240475, 0.00647497, 0.205475, 0.936475)
+bones/20/position = Vector3(0.0588364, 0.420236, 1.82921e-08)
+bones/20/rotation = Quaternion(-0.338408, -0.027582, -0.0846375, 0.936779)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-0.0146711, -0.00423089, 0.0982959, 0.99504)
+bones/21/scale = Vector3(1, 1, 1)
+bones/23/scale = Vector3(1, 1, 1)
+bones/24/position = Vector3(-0.0381091, 0.420236, 4.19497e-08)
+bones/24/rotation = Quaternion(-0.350525, -0.014525, 0.085475, 0.935475)
+bones/24/scale = Vector3(1, 1, 1)
+bones/25/rotation = Quaternion(0.015475, 0.00547497, -0.097525, 0.999475)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmnkh3i2qmsj1"]
+
+[ext_resource type="PackedScene" uid="uid://dm483u5ul7kro" path="res://assets/physicsobjectScenes/physics_obj_piece.tscn" id="1_twqge"]
+[ext_resource type="Texture2D" uid="uid://nmdummpg80t3" path="res://assets/physicsobjects/bottle/bottle3.png" id="2_nbjfn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcvx0"]
+size = Vector2(4, 6)
+
+[node name="bottlePiece2" instance=ExtResource("1_twqge")]
+collision_layer = 2
+collision_mask = 2
+mass = 0.25
+
+[node name="sprite" parent="." index="0"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_nbjfn")
+
+[node name="collide" parent="." index="1"]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_jcvx0")

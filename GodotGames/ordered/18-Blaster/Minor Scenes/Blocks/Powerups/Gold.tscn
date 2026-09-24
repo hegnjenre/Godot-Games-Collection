@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b21pyuycxuqru"]
+
+[ext_resource type="PackedScene" uid="uid://crjxi245imq47" path="res://Minor Scenes/Blocks/defaultPowerup.tscn" id="1_3apde"]
+[ext_resource type="Texture2D" uid="uid://crd1oo38u7y8u" path="res://Sprites/ArenaSprites/powerups/GoldCoin.png" id="2_2raur"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dotoe"]
+radius = 7.0
+height = 22.0
+
+[node name="defaultPowerup" instance=ExtResource("1_3apde")]
+powerType = "G"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_2raur")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_dotoe")

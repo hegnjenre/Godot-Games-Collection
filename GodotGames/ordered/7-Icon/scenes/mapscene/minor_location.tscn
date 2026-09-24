@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqsvlty78oyee"]
+
+[ext_resource type="PackedScene" uid="uid://dr703pr3q87be" path="res://scenes/mapscene/location.tscn" id="1_4dhbk"]
+[ext_resource type="Texture2D" uid="uid://d3ipi7ugxv3ir" path="res://pngs/locationpngs/minor.png" id="2_feh8d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjxtn"]
+radius = 5.0
+
+[node name="minorLocation" instance=ExtResource("1_4dhbk")]
+scale = Vector2(1.6, 1.6)
+
+[node name="collide" parent="clickArea" index="0"]
+shape = SubResource("CircleShape2D_rjxtn")
+
+[node name="locationSprite" parent="." index="1"]
+texture = ExtResource("2_feh8d")

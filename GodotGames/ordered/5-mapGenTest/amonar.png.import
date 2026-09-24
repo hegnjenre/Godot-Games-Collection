@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bpsyt7qxaxglg"
+path="res://.godot/imported/amonar.png-fbf382e89b321fc4d6cb9b603c126cc8.res"
+
+[deps]
+
+source_file="res://amonar.png"
+dest_files=["res://.godot/imported/amonar.png-fbf382e89b321fc4d6cb9b603c126cc8.res"]
+
+[params]
+
+create_from=0
+threshold=0.1

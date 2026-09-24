@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://k32h7a4pmksv"]
+
+[ext_resource type="PackedScene" uid="uid://b1s2tk47w7sr7" path="res://Major Scenes/characters/player_char.tscn" id="1_dhhm4"]
+[ext_resource type="PackedScene" uid="uid://ba0jugw8odib7" path="res://Minor Scenes/carExit/car.tscn" id="2_fe41i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7jqs0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qttc5"]
+size = Vector2(640, 20)
+
+[node name="homeScene" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+position = Vector2(320, 350)
+scale = Vector2(640, 20)
+mesh = SubResource("BoxMesh_7jqs0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(320, 350)
+shape = SubResource("RectangleShape2D_qttc5")
+
+[node name="playerChar" parent="." instance=ExtResource("1_dhhm4")]
+position = Vector2(66, 334)
+scale = Vector2(-1, 1)
+
+[node name="car" parent="." instance=ExtResource("2_fe41i")]
+position = Vector2(17, 340)
+scale = Vector2(-1, 1)

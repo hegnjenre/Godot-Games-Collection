@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dgsjxqcnf28dq"]
+
+[ext_resource type="PackedScene" uid="uid://cl6owsb12gfvj" path="res://scenes/map/map_generator.tscn" id="1_lvjdj"]
+[ext_resource type="PackedScene" uid="uid://oxt5ftxjjr24" path="res://scenes/player/player.tscn" id="1_tcynh"]
+
+[node name="debug" type="Node2D" unique_id=1142172887]
+
+[node name="mapGenerator" parent="." unique_id=602761765 instance=ExtResource("1_lvjdj")]
+
+[node name="player" parent="." unique_id=456967942 instance=ExtResource("1_tcynh")]
+position = Vector2(32, 32)

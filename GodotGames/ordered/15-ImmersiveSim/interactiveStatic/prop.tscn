@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://s2l5sk8jko53"]
+
+[ext_resource type="Script" path="res://interactiveStatic/prop.gd" id="1_a8fxy"]
+[ext_resource type="Texture2D" uid="uid://cquxa7xbdeiw8" path="res://assets2D/textBox.png" id="2_tijot"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_igjjh"]
+height = 6.85816
+radius = 4.36056
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kxur"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l08qi"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="prop" type="Node3D"]
+script = ExtResource("1_a8fxy")
+
+[node name="triggerArea" type="Area3D" parent="."]
+
+[node name="collider" type="CollisionShape3D" parent="triggerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.29104, 0)
+shape = SubResource("CylinderShape3D_igjjh")
+
+[node name="infoContainer" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="backG" type="Sprite2D" parent="infoContainer"]
+position = Vector2(960, 448)
+scale = Vector2(7, 4.4375)
+texture = ExtResource("2_tijot")
+
+[node name="title" type="Label" parent="infoContainer"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 386.0
+offset_right = 1120.0
+offset_bottom = 410.0
+label_settings = SubResource("LabelSettings_4kxur")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="info" type="Label" parent="infoContainer"]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 412.0
+offset_right = 1128.0
+offset_bottom = 497.0
+label_settings = SubResource("LabelSettings_l08qi")
+autowrap_mode = 2
+
+[connection signal="body_entered" from="triggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="body_exited" from="triggerArea" to="." method="_on_trigger_area_body_exited"]

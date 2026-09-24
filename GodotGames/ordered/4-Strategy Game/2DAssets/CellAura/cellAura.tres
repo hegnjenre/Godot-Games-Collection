@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://vvjm1oqso2na"]
+
+[ext_resource type="Texture2D" uid="uid://x2wq4rgpf8q2" path="res://2DAssets/CellAura/selectedAura/selectedAura1.png" id="1_ii03e"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ii03e")
+}],
+"loop": true,
+"name": &"select",
+"speed": 8.0
+}]

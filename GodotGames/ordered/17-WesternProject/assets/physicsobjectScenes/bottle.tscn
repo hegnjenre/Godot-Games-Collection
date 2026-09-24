@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c52yr4gk8eh6p"]
+
+[ext_resource type="PackedScene" uid="uid://dqsdmymuafglh" path="res://assets/physicsobjectScenes/physics_object.tscn" id="1_c0t6t"]
+[ext_resource type="Script" path="res://assets/physicsobjectScenes/bottleDestructNode.gd" id="2_lcp4i"]
+[ext_resource type="Texture2D" uid="uid://dmte3hi5niixr" path="res://assets/physicsobjects/bottle/bottle1.png" id="2_ugq1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76tnp"]
+size = Vector2(8, 21.3333)
+
+[node name="bottle" groups=["physObj"] instance=ExtResource("1_c0t6t")]
+collision_layer = 3
+mass = 2.0
+inertia = 40.0
+
+[node name="sprite" parent="." index="0" groups=["physObj"]]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_ugq1l")
+
+[node name="collide" parent="." index="1" groups=["physObj"]]
+position = Vector2(0, -0.4)
+scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_76tnp")
+
+[node name="destructNode" parent="." index="2" groups=["physObj"]]
+script = ExtResource("2_lcp4i")

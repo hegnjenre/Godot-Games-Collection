@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca547eokmn2r6"]
+
+[ext_resource type="PackedScene" uid="uid://c77mj6xmjifxs" path="res://object.tscn" id="1_4f0g8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_fumnr"]
+radius = 4.0
+height = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6s404"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1as5j"]
+radius = 4.0
+
+[node name="ball" instance=ExtResource("1_4f0g8")]
+collision_mask = 1
+
+[node name="MeshInstance2D" parent="." index="0"]
+mesh = SubResource("SphereMesh_fumnr")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_6s404")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_1as5j")

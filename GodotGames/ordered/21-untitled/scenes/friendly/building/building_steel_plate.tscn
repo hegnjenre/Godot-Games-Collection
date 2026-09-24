@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bnbak7ccsllw0"]
+
+[ext_resource type="PackedScene" uid="uid://dpk2xyv8t0kvx" path="res://scenes/friendly/building/building_super.tscn" id="1_kwtfy"]
+[ext_resource type="SpriteFrames" uid="uid://b3uvqm3ndn71y" path="res://spriteframes/friendly/buildings/steelFactory.tres" id="2_ls85m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3inwc"]
+size = Vector2(22, 19)
+
+[node name="buildingSteelPlate" unique_id=1958217510 instance=ExtResource("1_kwtfy")]
+inputResource = 0
+outputResource = 2
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1184648908]
+sprite_frames = ExtResource("2_ls85m")
+animation = &"activated"
+autoplay = "deactivated"
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(548973626) index="0" unique_id=1869184689]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_3inwc")
+
+[node name="inputPoint" parent="." index="2" unique_id=403275842]
+position = Vector2(0, 8)
+
+[node name="outputPoint" parent="." index="3" unique_id=279686674]
+position = Vector2(-16, -4)

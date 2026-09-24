@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bep8h4jd4vfje"]
+
+[ext_resource type="PackedScene" uid="uid://crjxi245imq47" path="res://Minor Scenes/Blocks/defaultPowerup.tscn" id="1_pk2xx"]
+[ext_resource type="Texture2D" uid="uid://cm4wx7b2t28fr" path="res://Sprites/ArenaSprites/powerups/ExtraBall.png" id="2_d87tp"]
+
+[node name="extraBall" instance=ExtResource("1_pk2xx")]
+powerType = "EB"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_d87tp")

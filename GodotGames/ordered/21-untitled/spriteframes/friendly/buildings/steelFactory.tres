@@ -1,0 +1,35 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b3uvqm3ndn71y"]
+
+[ext_resource type="Texture2D" uid="uid://dce6bnkup24vg" path="res://sprites/friendly/buildings/steel building1.png" id="1_eqw62"]
+[ext_resource type="Texture2D" uid="uid://qavblfdm5j1p" path="res://sprites/friendly/buildings/steel building2.png" id="2_n052t"]
+[ext_resource type="Texture2D" uid="uid://bvxw2ytqfxiao" path="res://sprites/friendly/buildings/steel building3.png" id="3_85tv5"]
+[ext_resource type="Texture2D" uid="uid://1iph4f0s03jy" path="res://sprites/friendly/buildings/steel building4.png" id="4_4k1y8"]
+[ext_resource type="Texture2D" uid="uid://caegagag8lkej" path="res://sprites/friendly/buildings/steel building base.png" id="5_clpb2"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eqw62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n052t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_85tv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4k1y8")
+}],
+"loop": 1,
+"name": &"activated",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_clpb2")
+}],
+"loop": 0,
+"name": &"deactivated",
+"speed": 5.0
+}]

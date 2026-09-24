@@ -1,0 +1,1026 @@
+[gd_scene load_steps=7 format=3 uid="uid://cj70qsu6lyaxn"]
+
+[ext_resource type="Script" path="res://scripts/board.gd" id="1_feq2a"]
+[ext_resource type="PackedScene" uid="uid://b6pkg0ih2o4xw" path="res://2DAssets/UI/board_ui.tscn" id="2_3c7lm"]
+[ext_resource type="ArrayMesh" uid="uid://h58ll07vqvxt" path="res://3DAssets/board.obj" id="2_7ecxa"]
+[ext_resource type="PackedScene" uid="uid://biejbt6osgosx" path="res://scenes/enemy_gm.tscn" id="4_3yam7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqqhi"]
+size = Vector3(2.72116, 1, 2.72818)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_piwv7"]
+radius = 3.0
+
+[node name="board" type="Node3D"]
+script = ExtResource("1_feq2a")
+
+[node name="orthoView" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 19, 6.3)
+projection = 1
+fov = 90.0
+size = 45.0
+
+[node name="boardUI" parent="orthoView" instance=ExtResource("2_3c7lm")]
+
+[node name="playerBoard" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_7ecxa")
+
+[node name="enemyBoard" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
+mesh = ExtResource("2_7ecxa")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.405188, 0.649183, -0.643727, -0.345819, 0.760633, 0.549406, 0.846305, 3.6441e-08, 0.532699, -22.2455, 13.2748, 10.9197)
+
+[node name="playerCells" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.299923, 0)
+
+[node name="A1" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/A1" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A2" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.0371, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/A2" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A3" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.05855, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/A3" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A4" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00341, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/A4" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A5" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0331492, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/A5" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A6" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98846, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/A6" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A7" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96932, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/A7" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A8" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.98739, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/A8" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A9" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0059, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/A9" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B1" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/B1" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B2" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.94251, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/B2" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B3" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.04284, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/B3" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B4" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99944, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/B4" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B5" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0070982, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/B5" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B6" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00366, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/B6" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B7" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96537, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/B7" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B8" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.95073, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/B8" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B9" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9826, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/B9" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C1" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/C1" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C2" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00443, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/C2" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C3" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.91944, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/C3" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C4" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03002, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/C4" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C5" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0576587, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/C5" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C6" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.07439, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/C6" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C7" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0275, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/C7" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C8" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.99137, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/C8" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C9" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9416, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/C9" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D1" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/D1" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D2" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.87435, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/D2" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D3" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95456, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/D3" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D4" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94816, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/D4" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D5" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318909, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/D5" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D9" type="Area3D" parent="playerCells/D5" groups=["playerCells"]]
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/D5/D9" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D6" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95288, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/D6" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D7" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95103, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/D7" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D8" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96385, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/D8" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D9" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0204, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/D9" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E1" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/E1" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E2" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.95532, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/E2" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E3" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95503, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/E3" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E4" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96317, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/E4" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E5" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0851173, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/E5" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E6" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.08305, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/E6" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E7" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04172, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/E7" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E8" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9659, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/E8" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E9" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9497, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/E9" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F1" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/F1" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F2" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.95307, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/F2" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F3" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99348, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/F3" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F4" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03179, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/F4" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F5" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0123653, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/F5" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F6" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93885, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/F6" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F7" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.91409, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/F7" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F8" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.02301, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/F8" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F9" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.954, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/F9" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G1" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/G1" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G2" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.903, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/G2" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G3" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95104, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/G3" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G4" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02875, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/G4" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G5" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027338, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/G5" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G6" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92297, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/G6" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G7" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95615, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/G7" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G8" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93209, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/G8" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G9" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9929, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/G9" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H1" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/H1" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H2" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.95174, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/H2" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H3" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95592, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/H3" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H4" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9497, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/H4" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H5" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0154448, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/H5" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H6" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97956, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/H6" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H7" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.91506, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/H7" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H8" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.88543, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/H8" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H9" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9432, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/H9" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I1" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/I1" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I2" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.90526, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/I2" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I3" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95482, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/I3" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I4" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93124, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/I4" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I5" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00797272, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/I5" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I6" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94164, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/I6" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I7" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95053, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/I7" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I8" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.92153, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/I8" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I9" type="Area3D" parent="playerCells" groups=["playerCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9647, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="playerCells/I9" groups=["playerCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="enemyCells" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.299923, -28.0133)
+
+[node name="A1" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/A1" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A2" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.0371, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/A2" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A3" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.05855, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/A3" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A4" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00341, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/A4" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A5" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0331492, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/A5" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A6" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98846, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/A6" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A7" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96932, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/A7" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A8" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.98739, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/A8" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="A9" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0059, 0, -11.9287)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/A9" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B1" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/B1" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B2" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.94251, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/B2" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B3" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.04284, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/B3" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B4" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99944, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/B4" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B5" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0070982, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/B5" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B6" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00366, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/B6" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B7" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96537, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/B7" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B8" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.95073, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/B8" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="B9" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9826, 0, -8.83495)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/B9" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C1" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/C1" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C2" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00443, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/C2" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C3" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.91944, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/C3" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C4" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03002, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/C4" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C5" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0576587, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/C5" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C6" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.07439, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/C6" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C7" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0275, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/C7" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C8" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.99137, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/C8" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="C9" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9416, 0, -5.87686)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/C9" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D1" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/D1" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D2" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.87435, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/D2" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D3" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95456, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/D3" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D4" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94816, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/D4" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D5" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318909, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/D5" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D6" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95288, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/D6" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D7" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95103, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/D7" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D8" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96385, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/D8" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="D9" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0204, 0, -2.91929)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/D9" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E1" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/E1" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E2" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.95532, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/E2" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E3" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95503, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/E3" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E4" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96317, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/E4" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E5" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0851173, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/E5" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E6" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.08305, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/E6" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E7" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04172, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/E7" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E8" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9659, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/E8" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="E9" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9497, 0, 0.00576115)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/E9" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F1" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/F1" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F2" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.95307, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/F2" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F3" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99348, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/F3" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F4" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03179, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/F4" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F5" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0123653, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/F5" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F6" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93885, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/F6" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F7" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.91409, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/F7" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F8" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.02301, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/F8" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="F9" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.954, 0, 2.96322)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/F9" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G1" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/G1" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G2" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.903, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/G2" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G3" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95104, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/G3" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G4" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02875, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/G4" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G5" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027338, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/G5" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G6" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92297, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/G6" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G7" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95615, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/G7" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G8" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93209, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/G8" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="G9" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9929, 0, 6.02348)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/G9" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H1" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/H1" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H2" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.95174, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/H2" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H3" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95592, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/H3" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H4" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9497, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/H4" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H5" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0154448, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/H5" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H6" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97956, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/H6" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H7" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.91506, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/H7" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H8" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.88543, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/H8" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="H9" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9432, 0, 8.981)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/H9" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I1" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0443, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/I1" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I2" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.90526, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/I2" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I3" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95482, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/I3" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I4" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93124, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/I4" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I5" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00797272, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/I5" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I6" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94164, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/I6" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I7" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95053, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/I7" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I8" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.92153, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/I8" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="I9" type="Area3D" parent="enemyCells" groups=["enemyCells"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9647, 0, 11.9399)
+
+[node name="cellCollide" type="CollisionShape3D" parent="enemyCells/I9" groups=["enemyCells"]]
+shape = SubResource("BoxShape3D_vqqhi")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_piwv7")
+
+[node name="enemyGM" parent="." instance=ExtResource("4_3yam7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, -47)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

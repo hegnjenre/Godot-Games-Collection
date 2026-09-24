@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dpk2xyv8t0kvx"]
+
+[ext_resource type="Script" uid="uid://bhdkgglhhtquq" path="res://scripts/friendly/building/building_super.gd" id="1_20fee"]
+
+[node name="buildingSuper" type="Node2D" unique_id=1958217510]
+script = ExtResource("1_20fee")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1184648908]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=548973626]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1869184689]
+
+[node name="inputPoint" type="Node2D" parent="." unique_id=403275842]
+
+[node name="outputPoint" type="Node2D" parent="." unique_id=279686674]
+
+[node name="productionTimer" type="Timer" parent="." unique_id=1896770694]
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="productionTimer" to="." method="_on_production_timer_timeout"]

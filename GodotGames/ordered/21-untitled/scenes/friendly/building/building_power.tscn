@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://csk1nunx06n68"]
+
+[ext_resource type="PackedScene" uid="uid://dpk2xyv8t0kvx" path="res://scenes/friendly/building/building_super.tscn" id="1_2vn8b"]
+[ext_resource type="SpriteFrames" uid="uid://g5qe1685r83" path="res://spriteframes/friendly/buildings/powersiphon.tres" id="2_4jeb0"]
+[ext_resource type="Script" uid="uid://c48mwdhb1s22p" path="res://scripts/friendly/building/building_power.gd" id="2_x0jv8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1ald"]
+size = Vector2(22, 17)
+
+[node name="buildingPower" unique_id=1958217510 instance=ExtResource("1_2vn8b")]
+script = ExtResource("2_x0jv8")
+activated = true
+inputResource = 0
+outputResource = 1
+produceCountdown = 0.0
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1184648908]
+sprite_frames = ExtResource("2_4jeb0")
+animation = &"activated"
+autoplay = "deactivated"
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(548973626) index="0" unique_id=1869184689]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_r1ald")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bovjiagvru5b"]
+
+[ext_resource type="Script" path="res://unit.gd" id="1_hnrlq"]
+[ext_resource type="Texture2D" uid="uid://ctjojxkd2bi16" path="res://sprites/unit.png" id="1_kwr12"]
+[ext_resource type="PackedScene" uid="uid://qvaojc2cu2qr" path="res://pointer.tscn" id="3_rdg6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xo65"]
+size = Vector2(32, 32)
+
+[node name="unit" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_hnrlq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kwr12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7xo65")
+
+[node name="pointer" parent="." instance=ExtResource("3_rdg6e")]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

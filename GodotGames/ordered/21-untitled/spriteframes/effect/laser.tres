@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://do1ukt2hyx0y4"]
+
+[ext_resource type="Texture2D" uid="uid://inirkld0evkh" path="res://sprites/effects/laser1.png" id="1_t8rmr"]
+[ext_resource type="Texture2D" uid="uid://dxchhyy5dirtd" path="res://sprites/effects/laser2.png" id="2_5e5ha"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t8rmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5e5ha")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://qvskedh2ovqp"]
+
+[ext_resource type="TileSet" uid="uid://c6ycl56gt4l4y" path="res://tilesets/floor/metaltiles.tres" id="1_1g8qg"]
+[ext_resource type="Script" uid="uid://cajkumhj5xubv" path="res://scenes/map/tiles.gd" id="2_od8sr"]
+
+[node name="tiles" type="TileMapLayer" unique_id=643402028]
+tile_set = ExtResource("1_1g8qg")
+script = ExtResource("2_od8sr")

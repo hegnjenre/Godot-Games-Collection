@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cn01dxtlwnct4"]
+
+[ext_resource type="Script" uid="uid://u5rspxvh63qh" path="res://scripts/puzzles/button.gd" id="1_y4iao"]
+
+[node name="button" type="Button" unique_id=20665404]
+script = ExtResource("1_y4iao")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

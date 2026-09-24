@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://5rivmndtmldq"]
+
+[ext_resource type="Texture2D" uid="uid://dvlswm238jn6k" path="res://Assets/pngs/debug/debugTube.png" id="1_c7myt"]
+[ext_resource type="Script" path="res://Scripts/Coin/coin_tube_template.gd" id="1_q37pk"]
+[ext_resource type="PackedScene" uid="uid://vfygjkg3hrix" path="res://Scenes/info_label_sprite_pack.tscn" id="3_62x10"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_isn4o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c7myt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x2s8"]
+size = Vector2(68, 220)
+
+[node name="coinTubeTemplate" type="Area2D" groups=["selectable", "tube"]]
+script = ExtResource("1_q37pk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["selectable", "tube"]]
+sprite_frames = SubResource("SpriteFrames_isn4o")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["selectable", "tube"]]
+shape = SubResource("RectangleShape2D_4x2s8")
+
+[node name="infoLabelSpritePack" parent="." instance=ExtResource("3_62x10")]

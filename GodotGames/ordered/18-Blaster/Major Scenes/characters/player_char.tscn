@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1s2tk47w7sr7"]
+
+[ext_resource type="SpriteFrames" uid="uid://deypxyduml00b" path="res://Major Scenes/characters/characterFrames.tres" id="1_3iax2"]
+[ext_resource type="Script" path="res://Major Scenes/characters/player_char.gd" id="1_eak4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vou85"]
+size = Vector2(10, 11)
+
+[node name="playerChar" type="CharacterBody2D" groups=["char"]]
+script = ExtResource("1_eak4i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(-1, 1)
+sprite_frames = ExtResource("1_3iax2")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0535093
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vou85")
+debug_color = Color(0.0745098, 0.14902, 0.380392, 0.419608)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-5, 6)
+target_position = Vector2(0, 1)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(5, 6)
+target_position = Vector2(0, 1)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+enabled = false

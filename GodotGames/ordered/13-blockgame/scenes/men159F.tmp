@@ -1,0 +1,192 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8yccsqnvx3s0"]
+
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_4o02h"]
+[ext_resource type="Texture2D" uid="uid://b1p8ri634mysw" path="res://pngs/energyFull.png" id="2_k3lvu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ka4a"]
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_6twlq"]
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_julhx"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_urfxa"]
+font_size = 24
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_4o02h")
+
+[node name="menuCam" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="titleScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+metadata/_edit_lock_ = true
+
+[node name="playButton" type="Button" parent="titleScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.186
+anchor_right = 0.228
+anchor_bottom = 0.269
+offset_left = -0.599998
+offset_top = 0.0800018
+offset_right = 0.159973
+offset_bottom = 0.319977
+text = "Play New"
+metadata/_edit_lock_ = true
+
+[node name="settingsButton" type="Button" parent="titleScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.308
+anchor_right = 0.228
+anchor_bottom = 0.392
+offset_left = -0.599998
+offset_top = 0.239975
+offset_right = 0.159973
+offset_bottom = -0.240021
+text = "Settings"
+metadata/_edit_lock_ = true
+
+[node name="unblockedButton" type="Button" parent="titleScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.178
+anchor_right = 0.228
+anchor_bottom = 0.261
+offset_left = -0.599998
+offset_top = 181.84
+offset_right = 0.159973
+offset_bottom = 182.08
+text = "Unblocked Blocks"
+metadata/_edit_lock_ = true
+
+[node name="exitButton" type="Button" parent="titleScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.178
+anchor_right = 0.228
+anchor_bottom = 0.261
+offset_left = -0.599998
+offset_top = 269.84
+offset_right = 0.159973
+offset_bottom = 270.08
+text = "Exit"
+metadata/_edit_lock_ = true
+
+[node name="title" type="Label" parent="titleScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.049
+anchor_right = 0.204
+anchor_bottom = 0.142
+offset_left = -0.599998
+offset_top = -0.280003
+offset_right = -0.120026
+offset_bottom = -0.240005
+text = "Blocked"
+label_settings = SubResource("LabelSettings_4ka4a")
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="gameMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+metadata/_edit_lock_ = true
+
+[node name="totalBloins" type="Label" parent="gameMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.089
+anchor_right = 0.249
+anchor_bottom = 0.178
+offset_top = -0.0800018
+offset_right = 0.279968
+offset_bottom = 1.84
+text = "Total Bloins"
+label_settings = SubResource("LabelSettings_6twlq")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="totalBloinsNUMBER" type="Label" parent="gameMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.189
+anchor_right = 0.25
+anchor_bottom = 0.256
+offset_top = -0.0800018
+offset_bottom = -0.320007
+label_settings = SubResource("LabelSettings_julhx")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="remainingEnergy" type="Label" parent="gameMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.519
+anchor_top = 0.122
+anchor_right = 0.686
+anchor_bottom = 0.167
+offset_left = -0.320068
+offset_top = 0.159996
+offset_right = -0.0800781
+offset_bottom = 4.75999
+text = "Energy Remaining:"
+label_settings = SubResource("LabelSettings_urfxa")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="energySprite" type="Sprite2D" parent="gameMenu"]
+position = Vector2(912, 104)
+scale = Vector2(1.33333, 1.33333)
+texture = ExtResource("2_k3lvu")
+metadata/_edit_lock_ = true
+
+[node name="nextMatchButton" type="Button" parent="gameMenu"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 256.0
+offset_right = 296.0
+offset_bottom = 352.0
+text = "Start Next Match"
+metadata/_edit_lock_ = true
+
+[node name="editButton" type="Button" parent="gameMenu"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 416.0
+offset_right = 296.0
+offset_bottom = 512.0
+text = "Edit Block"
+metadata/_edit_lock_ = true
+
+[node name="shopButton" type="Button" parent="gameMenu"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 576.0
+offset_right = 296.0
+offset_bottom = 672.0
+text = "Shop"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="titleScreen/playButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="gameMenu/nextMatchButton" to="." method="_on_next_match_button_pressed"]

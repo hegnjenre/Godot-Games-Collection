@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6pkg0ih2o4xw"]
+
+[ext_resource type="Script" path="res://scripts/board_ui.gd" id="1_wevet"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_db5hd"]
+font_size = 24
+font_color = Color(1, 0, 0, 1)
+
+[node name="boardUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_wevet")
+
+[node name="unitRoster" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.025
+anchor_top = 0.046
+anchor_right = 0.192
+anchor_bottom = 0.956
+offset_left = -18.8
+offset_top = -19.808
+offset_right = 18.816
+offset_bottom = 18.512
+mouse_filter = 2
+
+[node name="unitRosterLabel" type="Label" parent="unitRoster"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.038
+offset_bottom = 0.135998
+text = "Unit Roster"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.123
+anchor_bottom = 0.147
+offset_left = 929.0
+offset_top = 542.0
+offset_right = 1004.3
+offset_bottom = 546.744
+text = "End Turn"
+
+[node name="waveInfo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.442
+anchor_right = 0.561
+anchor_bottom = 0.076
+offset_left = -0.184021
+offset_right = -0.272034
+offset_bottom = -0.248005
+text = "asdawdasd"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="targetingLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 982.0
+offset_top = 494.0
+offset_right = 1112.0
+offset_bottom = 531.0
+text = "Targeting..."
+label_settings = SubResource("LabelSettings_db5hd")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

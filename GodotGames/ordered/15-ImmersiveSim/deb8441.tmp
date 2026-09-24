@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjhxaktatmcs1"]
+
+[ext_resource type="PackedScene" uid="uid://cqtij1t7hft63" path="res://character/character.tscn" id="1_0xu1c"]
+[ext_resource type="PackedScene" uid="uid://bjbvtjifioat5" path="res://physObjs/physics_object.tscn" id="2_jop04"]
+[ext_resource type="Shader" path="res://skyShader.gdshader" id="3_ghpb5"]
+[ext_resource type="PackedScene" uid="uid://bm1dy48fpogav" path="res://interactiveStatic/doorProp.tscn" id="4_schfq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0t7yw"]
+albedo_color = Color(0.341176, 0.341176, 0.341176, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rhln5"]
+material = SubResource("StandardMaterial3D_0t7yw")
+size = Vector3(32, 0.1, 32)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8wxer"]
+size = Vector3(32, 0.11, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ejnlp"]
+shader = ExtResource("3_ghpb5")
+shader_parameter/skyColour = Color(0.529412, 0.807843, 0.921569, 1)
+shader_parameter/horizonColour = Color(0.121569, 0.313726, 0.388235, 1)
+
+[sub_resource type="Sky" id="Sky_mdd5k"]
+sky_material = SubResource("ShaderMaterial_ejnlp")
+
+[sub_resource type="Environment" id="Environment_vte4e"]
+background_mode = 2
+sky = SubResource("Sky_mdd5k")
+ambient_light_source = 3
+reflected_light_source = 2
+
+[node name="debugScene" type="Node3D"]
+
+[node name="floor" type="StaticBody3D" parent="." groups=["noInteract"]]
+collision_layer = 3855
+collision_mask = 3855
+
+[node name="floorMesh" type="MeshInstance3D" parent="floor" groups=["noInteract"]]
+mesh = SubResource("BoxMesh_rhln5")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" groups=["noInteract"]]
+shape = SubResource("BoxShape3D_8wxer")
+
+[node name="character" parent="." instance=ExtResource("1_0xu1c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07535, 0)
+
+[node name="physicsObject" parent="." instance=ExtResource("2_jop04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.15099, 0.583537, -1.0281)
+
+[node name="physicsObject2" parent="." instance=ExtResource("2_jop04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.16016, 0.644231, 0.124139)
+
+[node name="physicsObject3" parent="." instance=ExtResource("2_jop04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10057, 1.74584, -0.434944)
+
+[node name="physicsObject4" parent="." instance=ExtResource("2_jop04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57077, 3.06845, 0.199085)
+mass = 0.01
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.961103, 0.183493, -0.206426, 0, 0.747404, 0.66437, 0.276191, -0.638528, 0.718332, -31.3672, 31.6909, 71.4055)
+light_color = Color(1, 0.945098, 0.780392, 1)
+light_indirect_energy = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vte4e")
+
+[node name="doorProp" parent="." instance=ExtResource("4_schfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57563, 1.19943, -9.61352)

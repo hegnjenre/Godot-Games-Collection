@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cdgwwmg4jymiu"]
+
+[ext_resource type="Script" uid="uid://6pj876vicla6" path="res://scripts/puzzles/puzzle_button.gd" id="1_jiaty"]
+
+[node name="puzzleButton" type="Button" unique_id=1363837888]
+custom_minimum_size = Vector2(320, 360)
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+icon_alignment = 1
+script = ExtResource("1_jiaty")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

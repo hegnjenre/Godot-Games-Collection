@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://btxrttu12hp6n"]
+
+[ext_resource type="Script" uid="uid://pn80yaa2do0y" path="res://scripts/puzzles/master_wire.gd" id="1_v28cq"]
+
+[node name="masterWire" type="Node2D" unique_id=781965506]
+script = ExtResource("1_v28cq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1644814822]

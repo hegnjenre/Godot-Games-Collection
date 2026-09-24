@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ry5k0qrcj2yg"
+path="res://.godot/imported/amogus.png-f29e88478dee4a56ea5f8eb2511781a7.res"
+
+[deps]
+
+source_file="res://amogus.png"
+dest_files=["res://.godot/imported/amogus.png-f29e88478dee4a56ea5f8eb2511781a7.res"]
+
+[params]
+
+create_from=0
+threshold=0.1

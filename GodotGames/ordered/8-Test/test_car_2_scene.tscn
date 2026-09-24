@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://byrmktspvf7rn"]
+
+[ext_resource type="PackedScene" uid="uid://buy5dcy7e8vm3" path="res://test_car_2.tscn" id="1_74kes"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7h3j5"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ca2r"]
+size = Vector3(10, 0.1, 10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_7h3j5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_4ca2r")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.940301, -0.195933, 0.278289, 0, 0.817669, 0.575689, -0.340345, -0.54132, 0.768855, 3.10134, 3.86632, 6.93471)
+
+[node name="Car" parent="." instance=ExtResource("1_74kes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74424, 0)
+mass = 3.0
+
+[node name="Car2" parent="." instance=ExtResource("1_74kes")]
+transform = Transform3D(0.642788, 0, -0.766044, 5.50614e-09, 1, 1.95214e-08, 0.766044, 7.71341e-09, 0.642788, 2.33477, 2.74424, 0)
+mass = 5.0
+
+[node name="Car3" parent="." instance=ExtResource("1_74kes")]
+transform = Transform3D(-0.494839, 0.143303, 0.857087, 0.0716513, 0.989679, -0.124104, -0.866025, 0, -0.5, 0.440114, 2.74424, 3.27423)
+mass = 4.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.5, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.968396, 0.223593, -0.110521, 0, 0.443118, 0.896463, 0.249417, -0.868132, 0.429114, -6.58537, 2.97855, 0)
+shadow_enabled = true

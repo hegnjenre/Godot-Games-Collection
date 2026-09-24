@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c2i6lmw2r2318"]
+
+[ext_resource type="Script" uid="uid://qy4323lb2tur" path="res://scripts/effects/laser.gd" id="1_onn7g"]
+[ext_resource type="SpriteFrames" uid="uid://34o0mivey56l" path="res://spriteframes/effect/shot.tres" id="2_uc76e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atdb0"]
+size = Vector2(4, 3)
+
+[node name="laser" type="CharacterBody2D" unique_id=445670626]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_onn7g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1584189933]
+rotation = -0.7853982
+sprite_frames = ExtResource("2_uc76e")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=766282348]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_atdb0")
+
+[node name="Timer" type="Timer" parent="." unique_id=663477807]
+wait_time = 6.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

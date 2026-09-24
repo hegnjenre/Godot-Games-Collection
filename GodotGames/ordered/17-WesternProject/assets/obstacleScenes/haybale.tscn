@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bngiloxrd7shj"]
+
+[ext_resource type="PackedScene" uid="uid://0afxmvaeckoj" path="res://assets/obstacleScenes/obstacle.tscn" id="1_ns5a4"]
+[ext_resource type="Texture2D" uid="uid://gn4vi3j4y48d" path="res://assets/obstacle/bale.png" id="2_baqc8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlvrg"]
+size = Vector2(14, 14)
+
+[node name="haybale" instance=ExtResource("1_ns5a4")]
+
+[node name="stBody" parent="." index="0"]
+scale = Vector2(1.5, 1.5)
+
+[node name="sprite" parent="stBody" index="0"]
+texture = ExtResource("2_baqc8")
+
+[node name="Collide" parent="stBody" index="1"]
+shape = SubResource("RectangleShape2D_qlvrg")
+
+[node name="stoppingPoint" parent="." index="1"]
+position = Vector2(-21, 0)

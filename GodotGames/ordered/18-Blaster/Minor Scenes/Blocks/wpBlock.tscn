@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://doepl8lui1bbr"]
+
+[ext_resource type="PackedScene" uid="uid://dn6oxb0j2x7kb" path="res://Minor Scenes/Blocks/defaultBlock.tscn" id="1_e0s0h"]
+[ext_resource type="Texture2D" uid="uid://opiy73k246g1" path="res://Sprites/ArenaSprites/blocks/WiderPaddleBlock.png" id="2_3dyw4"]
+
+[node name="defaultBlock" instance=ExtResource("1_e0s0h")]
+pName = "WP"
+bits = 20
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_3dyw4")

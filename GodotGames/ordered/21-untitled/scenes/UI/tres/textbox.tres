@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://b6h6c86fy0p81"]
+
+[ext_resource type="FontFile" uid="uid://w0wmgs3k7gvk" path="res://sprites/font/Future Font.ttf" id="1_nnslx"]
+
+[resource]
+line_spacing = 1.0
+font = ExtResource("1_nnslx")
+font_size = 8

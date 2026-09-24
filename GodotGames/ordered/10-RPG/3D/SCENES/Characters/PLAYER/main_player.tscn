@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpws4j2rdguo0"]
+
+[ext_resource type="PackedScene" uid="uid://c51p812rhk0us" path="res://3D/SCENES/Characters/PLAYER/playercharacter.tscn" id="1_x5ra3"]
+[ext_resource type="Texture2D" uid="uid://ltiws6g35mrp" path="res://2D/CHARACTERSPRITES/COMPANIONS/debug.png" id="2_kpjks"]
+
+[node name="MainPlayer" instance=ExtResource("1_x5ra3")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 2.87827, 0)
+
+[node name="Sprite3D" parent="." index="0"]
+pixel_size = 0.006
+texture = ExtResource("2_kpjks")
+
+[node name="CamPoint" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="Camera3D" parent="CamPoint" index="0"]
+fov = 57.4622
+
+[node name="optionCam" parent="." index="2"]
+transform = Transform3D(0.1559, 0, -0.0589315, 0, 0.166667, 0, 0.0589315, 0, 0.1559, -0.44589, 0.0658799, 0.544938)
+
+[node name="diceCam" parent="." index="3"]
+transform = Transform3D(-6.88162e-09, 0.0411496, -0.161507, 1.79327e-09, 0.161507, 0.0411496, 0.166667, -3.8693e-11, -7.11133e-09, -1.27735, 0.128934, -0.817183)
+fov = 35.4701

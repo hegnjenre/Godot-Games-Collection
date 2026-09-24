@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://dag0jtv57ekq0"]
+
+[ext_resource type="PackedScene" uid="uid://cq8y8bmg66os6" path="res://assets3D/debug/swrod.glb" id="2_sho6r"]
+
+[sub_resource type="Animation" id="Animation_ey1np"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("swrod:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.319852, -0.0896473, 0.282817)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("swrod:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.597042, -1.5708, 2.97151e-08)]
+}
+
+[sub_resource type="Animation" id="Animation_njytv"]
+resource_name = "sliceAnim"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("swrod:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.319852, -0.0896473, 0.282817), Vector3(-0.149292, -0.0896473, 0.403352), Vector3(-0.0470368, -0.0896473, 0.30852), Vector3(-0.153012, -0.0896473, 0.160543), Vector3(-0.153012, -0.0896473, 0.0867937), Vector3(-0.153012, -0.0923493, 0.191008), Vector3(-0.319852, -0.0896473, 0.282817)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("swrod:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.597042, -1.5708, 2.97151e-08), Vector3(-0.412228, -1.1258, -0.872063), Vector3(-0.1663, -0.43971, -1.32131), Vector3(0.00518562, 0.240548, -1.40142), Vector3(-0.0941349, 0.600383, -1.46922), Vector3(-0.624193, -0.0265778, -1.25389), Vector3(-0.565487, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fijsk"]
+_data = {
+"RESET": SubResource("Animation_ey1np"),
+"sliceAnim": SubResource("Animation_njytv")
+}
+
+[node name="debugViewModel" type="Node3D"]
+
+[node name="swrod" parent="." instance=ExtResource("2_sho6r")]
+transform = Transform3D(-3.60328e-07, 0.0562199, -0.0827002, 2.45745e-09, 0.0827002, 0.0562199, 0.1, 2.00544e-07, -2.99374e-07, -0.319852, -0.0896473, 0.282817)
+
+[node name="animPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fijsk")
+}

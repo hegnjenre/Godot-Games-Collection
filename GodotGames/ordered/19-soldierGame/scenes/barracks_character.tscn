@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cysltn2ao7jrk"]
+
+[ext_resource type="Script" path="res://scenes/barracks_character.gd" id="1_vuga8"]
+[ext_resource type="Texture2D" uid="uid://5ff6v37x6ous" path="res://sprites/debug/portrait.png" id="2_6pc4g"]
+[ext_resource type="LabelSettings" uid="uid://b6fqulp7e70sw" path="res://text/LabelSettings/smallText.tres" id="3_jdm1q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aa5eu"]
+size = Vector2(224, 256)
+
+[node name="BarracksCharacter" type="Node2D"]
+script = ExtResource("1_vuga8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_6pc4g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -112.0
+offset_top = 112.0
+offset_right = 112.0
+offset_bottom = 144.0
+color = Color(0.411765, 0.411765, 0.411765, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -112.0
+offset_top = 104.0
+offset_right = 112.0
+offset_bottom = 144.0
+text = "<name>"
+label_settings = ExtResource("3_jdm1q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_aa5eu")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

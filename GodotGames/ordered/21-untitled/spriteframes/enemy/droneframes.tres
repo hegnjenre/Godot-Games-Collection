@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://b87bsslie6fun"]
+
+[ext_resource type="Texture2D" uid="uid://vel6cld75ah" path="res://sprites/enemy/drone/drone1.png" id="1_t66kr"]
+[ext_resource type="Texture2D" uid="uid://47kvk77rdyj7" path="res://sprites/enemy/drone/drone2.png" id="2_otsx5"]
+[ext_resource type="Texture2D" uid="uid://c7dby5ru5o3hf" path="res://sprites/enemy/drone/drone3.png" id="3_1q5bu"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t66kr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_otsx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1q5bu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]

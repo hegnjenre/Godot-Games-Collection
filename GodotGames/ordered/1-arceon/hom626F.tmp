@@ -1,0 +1,102 @@
+[gd_scene load_steps=16 format=3 uid="uid://dolbev65odgca"]
+
+[ext_resource type="PackedScene" uid="uid://0k8eyyrybwaj" path="res://player.tscn" id="1_ewsce"]
+[ext_resource type="PackedScene" uid="uid://b2mbgdqhbqx4j" path="res://cam_area.tscn" id="2_vcm8q"]
+[ext_resource type="PackedScene" uid="uid://26kisrxewgg1" path="res://scene_camera.tscn" id="3_akot1"]
+[ext_resource type="PackedScene" uid="uid://ir7rvkbsfjab" path="res://prop.tscn" id="4_dmsuc"]
+[ext_resource type="Script" path="res://sign.gd" id="5_mhh3u"]
+[ext_resource type="PackedScene" uid="uid://bb2yock1b85hv" path="res://Assets/sign.glb" id="5_ru5n6"]
+[ext_resource type="Script" path="res://door.gd" id="7_lor53"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v12gp"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_0d5c0"]
+sky_material = SubResource("ProceduralSkyMaterial_v12gp")
+
+[sub_resource type="Environment" id="Environment_4qntl"]
+background_mode = 2
+sky = SubResource("Sky_0d5c0")
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ukllr"]
+size = Vector2(150, 150)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxj6l"]
+size = Vector3(152.447, 0.01, 150.992)
+
+[sub_resource type="GDScript" id="GDScript_s4354"]
+script/source = "extends Area3D
+
+@onready var cam = $sceneCamera
+
+func _process(delta):
+	pass
+
+func _on_body_entered(body):
+	if body.name != \"player\":
+		return
+	else:
+		cam.current = true
+		cam.target = body
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai4lx"]
+size = Vector3(155.942, 26.5811, 149.943)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qlndu"]
+
+[node name="home" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0736181, 1.25313, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 48.1611, -28.6852)
+light_color = Color(1, 1, 0.768627, 1)
+light_energy = 0.39
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4qntl")
+
+[node name="ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ukllr")
+
+[node name="gro" type="StaticBody3D" parent="ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/gro"]
+shape = SubResource("BoxShape3D_fxj6l")
+
+[node name="player" parent="." instance=ExtResource("1_ewsce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451224, 0)
+
+[node name="camArea" parent="." instance=ExtResource("2_vcm8q")]
+script = SubResource("GDScript_s4354")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="camArea"]
+shape = SubResource("BoxShape3D_ai4lx")
+
+[node name="sceneCamera" parent="camArea" instance=ExtResource("3_akot1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687352, 12.6001, 26.4644)
+fov = 95.8
+
+[node name="prop" parent="." instance=ExtResource("4_dmsuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3281, 0.0192776, 13.3786)
+script = ExtResource("5_mhh3u")
+objectTitle = "Signpost"
+objectInfo = "The sign says: ROAD TO VERION"
+
+[node name="sign" parent="prop" instance=ExtResource("5_ru5n6")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.187115, -0.0192776, -0.378646)
+
+[node name="boxProp" parent="." node_paths=PackedStringArray("object") instance=ExtResource("4_dmsuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0960816, 0, 13.7491)
+script = ExtResource("7_lor53")
+object = NodePath("box")
+
+[node name="box" type="MeshInstance3D" parent="boxProp"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2.135, 0)
+mesh = SubResource("BoxMesh_qlndu")
+skeleton = NodePath("../..")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://rmr0i7blpmtb"]
+
+[ext_resource type="PackedScene" uid="uid://mm3ugpyy1hsx" path="res://Scenes/interface.tscn" id="1_mxdsx"]
+[ext_resource type="PackedScene" uid="uid://cxpqk5lcqvy5w" path="res://Scenes/mouse_area.tscn" id="2_ygo3w"]
+[ext_resource type="PackedScene" uid="uid://5rivmndtmldq" path="res://Scenes/Coins/coin_tube_template.tscn" id="3_j5fy5"]
+
+[node name="debugScene" type="Node2D"]
+
+[node name="interface" parent="." instance=ExtResource("1_mxdsx")]
+
+[node name="mouseArea" parent="." instance=ExtResource("2_ygo3w")]
+
+[node name="coinTubeTemplate" parent="." instance=ExtResource("3_j5fy5")]
+position = Vector2(529, 284)

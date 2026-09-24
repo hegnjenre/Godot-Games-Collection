@@ -1,0 +1,34 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dalt4yckba4ai"]
+
+[ext_resource type="Texture2D" uid="uid://bd08uo2cpa8m0" path="res://sprites/effects/attackAnim1.png" id="1_gv4g4"]
+[ext_resource type="Texture2D" uid="uid://j62rtwv8qb5t" path="res://sprites/effects/attackAnim2.png" id="2_ppt7t"]
+[ext_resource type="Texture2D" uid="uid://f8b3yy6fon2y" path="res://sprites/effects/attackAnim3.png" id="3_8vk81"]
+[ext_resource type="Texture2D" uid="uid://ceou5d531qyek" path="res://sprites/effects/empty.png" id="4_0n1qi"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gv4g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_gv4g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ppt7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8vk81")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0n1qi")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]

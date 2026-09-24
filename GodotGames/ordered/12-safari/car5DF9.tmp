@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdb4g5u6dmauh"]
+
+[ext_resource type="Script" path="res://car.gd" id="1_cai4s"]
+[ext_resource type="Script" path="res://wheel.gd" id="2_12ymw"]
+[ext_resource type="Curve" uid="uid://bnkaw6hs4yefl" path="res://defaultCarCurve.tres" id="2_f18xt"]
+[ext_resource type="PackedScene" uid="uid://d1qtai4w31n4b" path="res://car_wheel.tscn" id="2_wxsyd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_il0h4"]
+size = Vector3(2, 0.5, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hjnjd"]
+size = Vector3(0.5, 2, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k10rl"]
+size = Vector3(2, 0.5, 4)
+
+[node name="Car" type="RigidBody3D"]
+mass = 40.0
+script = ExtResource("1_cai4s")
+accelerationCurve = ExtResource("2_f18xt")
+
+[node name="body" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_il0h4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 1.75)
+mesh = SubResource("BoxMesh_hjnjd")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_k10rl")
+
+[node name="suspension" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="frontL" type="RayCast3D" parent="suspension"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.25, 1.6)
+exclude_parent = false
+collision_mask = 8
+hit_from_inside = true
+script = ExtResource("2_12ymw")
+frontWheel = true
+
+[node name="carWheel" parent="suspension/frontL" instance=ExtResource("2_wxsyd")]
+
+[node name="frontR" type="RayCast3D" parent="suspension"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.25, 1.6)
+exclude_parent = false
+collision_mask = 8
+hit_from_inside = true
+script = ExtResource("2_12ymw")
+frontWheel = true
+
+[node name="carWheel" parent="suspension/frontR" instance=ExtResource("2_wxsyd")]
+
+[node name="backR" type="RayCast3D" parent="suspension"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.25, -1.6)
+enabled = false
+exclude_parent = false
+collision_mask = 8
+hit_from_inside = true
+script = ExtResource("2_12ymw")
+
+[node name="carWheel" parent="suspension/backR" instance=ExtResource("2_wxsyd")]
+
+[node name="backL" type="RayCast3D" parent="suspension"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.25, -1.6)
+enabled = false
+exclude_parent = false
+collision_mask = 8
+hit_from_inside = true
+script = ExtResource("2_12ymw")
+
+[node name="carWheel" parent="suspension/backL" instance=ExtResource("2_wxsyd")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 3, 5)

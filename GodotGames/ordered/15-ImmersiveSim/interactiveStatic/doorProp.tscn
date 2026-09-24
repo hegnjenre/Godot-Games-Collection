@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm1dy48fpogav"]
+
+[ext_resource type="PackedScene" uid="uid://s2l5sk8jko53" path="res://interactiveStatic/prop.tscn" id="1_46svv"]
+[ext_resource type="Script" path="res://interactiveStatic/door.gd" id="2_m8idi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j3qp3"]
+height = 7.0
+radius = 3.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b53eu"]
+size = Vector3(1, 2.00343, 0.155333)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0uw4h"]
+size = Vector3(1, 2, 0.15)
+
+[node name="doorProp" groups=["door"] instance=ExtResource("1_46svv")]
+script = ExtResource("2_m8idi")
+
+[node name="triggerArea" parent="." index="0" groups=["door"]]
+
+[node name="collider" parent="triggerArea" index="0" groups=["door"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25289, 0)
+shape = SubResource("CylinderShape3D_j3qp3")
+
+[node name="infoContainer" parent="." index="1" groups=["door"]]
+
+[node name="backG" parent="infoContainer" index="0" groups=["door"]]
+
+[node name="title" parent="infoContainer" index="1" groups=["door"]]
+
+[node name="info" parent="infoContainer" index="2" groups=["door"]]
+
+[node name="doorPivot" type="Node3D" parent="." index="2" groups=["door"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39145, 1.64109, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="doorPivot" index="0" groups=["door"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="doorPivot/StaticBody3D" index="0" groups=["door"]]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.47874, 0.252216, 0)
+shape = SubResource("BoxShape3D_b53eu")
+
+[node name="doorMesh" type="MeshInstance3D" parent="doorPivot/StaticBody3D" index="1" groups=["door"]]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.47874, 0.252216, 0)
+mesh = SubResource("BoxMesh_0uw4h")
+skeleton = NodePath("../../../..")

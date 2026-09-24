@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bs5hxma0y64c0"]
+
+[ext_resource type="Script" uid="uid://bkms4aiv5eckm" path="res://scenes/UI/scripts/ui_controller.gd" id="1_igbwh"]
+[ext_resource type="PackedScene" uid="uid://bi7bh7ao643mo" path="res://scenes/UI/building_view.tscn" id="2_ken3r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_igbwh"]
+
+[node name="UIController" type="Control" unique_id=1623021614]
+layout_mode = 3
+anchor_left = -1.25
+anchor_top = -1.25
+anchor_right = 1.25
+anchor_bottom = 1.25
+offset_right = -1728.0
+offset_bottom = -972.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+mouse_filter = 1
+script = ExtResource("1_igbwh")
+debug = true
+
+[node name="buildingView" parent="." unique_id=196776592 instance=ExtResource("2_ken3r")]
+visible = false
+layout_mode = 1
+mouse_filter = 1
+
+[node name="ControlTop" type="Control" parent="." unique_id=1801826223]
+custom_maximum_size = Vector2(1136, 96)
+layout_mode = 1
+anchor_left = 0.007
+anchor_top = 0.012
+anchor_right = 0.99300003
+anchor_bottom = 0.16000001
+offset_top = 0.22399998
+offset_right = 0.12792969
+offset_bottom = 0.31999207
+mouse_filter = 1
+metadata/_edit_lock_ = true
+
+[node name="Resources" type="HBoxContainer" parent="ControlTop" unique_id=599664424]
+custom_minimum_size = Vector2(90, 0)
+custom_maximum_size = Vector2(568, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.16700001
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 3.9679985
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="debugHealth" type="Label" parent="ControlTop" unique_id=1782173105]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = 0.083000004
+anchor_right = 0.042000003
+anchor_bottom = 0.323
+offset_left = -0.01600027
+offset_top = 0.031999588
+offset_right = 0.22399902
+offset_bottom = -0.0080013275
+label_settings = SubResource("LabelSettings_igbwh")
+
+[node name="ControlDebug" type="Control" parent="." unique_id=1010772350]
+layout_mode = 1
+anchor_left = 0.771
+anchor_top = 0.19800001
+anchor_right = 0.99300003
+anchor_bottom = 0.98800004
+offset_left = -0.1920166
+offset_top = -0.3040161
+offset_right = 0.063964844
+offset_bottom = -0.22399902
+mouse_filter = 1
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlDebug" unique_id=181476143]
+custom_maximum_size = Vector2(256, 512)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="ControlDebug/VBoxContainer" unique_id=1728205032]
+layout_mode = 2
+text = "Building View"
+
+[connection signal="pressed" from="ControlDebug/VBoxContainer/Button" to="." method="_on_button_pressed"]

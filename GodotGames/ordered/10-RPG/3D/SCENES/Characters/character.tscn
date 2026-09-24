@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddc30mvdc4dqw"]
+
+[ext_resource type="Script" path="res://Character.gd" id="1_617d8"]
+
+[node name="Character" type="Node3D"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 1.21005, 0)
+script = ExtResource("1_617d8")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.004
+billboard = 2
+texture_filter = 0

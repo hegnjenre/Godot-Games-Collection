@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://6014ki7tbqsx"]
+
+[ext_resource type="PackedScene" uid="uid://dogaw3spm54u1" path="res://sling_indicator.tscn" id="1_j5u3u"]
+[ext_resource type="Script" path="res://sling_indicator.gd" id="2_80thl"]
+
+[node name="2DLayer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="slingIndicator" parent="." instance=ExtResource("1_j5u3u")]
+script = ExtResource("2_80thl")

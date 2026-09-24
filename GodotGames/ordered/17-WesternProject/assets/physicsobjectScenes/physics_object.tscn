@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqsdmymuafglh"]
+
+[ext_resource type="Script" path="res://assets/physicsobjectScenes/physics_object.gd" id="1_1ynti"]
+[ext_resource type="Script" path="res://assets/physicsobjectScenes/destructNode.gd" id="2_cpix8"]
+
+[node name="physicsObject" type="RigidBody2D"]
+script = ExtResource("1_1ynti")
+
+[node name="sprite" type="Sprite2D" parent="."]
+
+[node name="collide" type="CollisionShape2D" parent="."]
+
+[node name="destructNode" type="Node" parent="."]
+script = ExtResource("2_cpix8")

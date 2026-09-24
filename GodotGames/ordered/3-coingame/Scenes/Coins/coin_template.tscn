@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfa208q8ywt5e"]
+
+[ext_resource type="Script" path="res://Scripts/Coin/coin.gd" id="1_g815e"]
+[ext_resource type="SpriteFrames" uid="uid://c1w0avnkf2k1b" path="res://Assets/CoinSprites/debug/debugCoin.tres" id="1_w6vfd"]
+[ext_resource type="Shape2D" uid="uid://c1jc48kw31fb7" path="res://Assets/Collisions/mediumCoinCollision.tres" id="2_uy6y5"]
+[ext_resource type="PackedScene" uid="uid://b2hjiduqr4q0c" path="res://Scenes/info_label_sprite.tscn" id="4_cxcni"]
+
+[node name="coinTemplate" type="Area2D" groups=["coin", "selectable"]]
+script = ExtResource("1_g815e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["coin", "selectable"]]
+sprite_frames = ExtResource("1_w6vfd")
+animation = &"flip"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["coin", "selectable"]]
+shape = ExtResource("2_uy6y5")
+
+[node name="infoLabelSprite" parent="." instance=ExtResource("4_cxcni")]

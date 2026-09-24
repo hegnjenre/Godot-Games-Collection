@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6dc3ujnr4lnv"]
+
+[ext_resource type="PackedScene" uid="uid://bscw7q8y5yhe8" path="res://player.tscn" id="1_ang6w"]
+[ext_resource type="PackedScene" uid="uid://c52yr4gk8eh6p" path="res://assets/physicsobjectScenes/bottle.tscn" id="3_slqtd"]
+[ext_resource type="PackedScene" uid="uid://b0c4uchp5genq" path="res://assets/obstacleScenes/crate.tscn" id="4_38gay"]
+[ext_resource type="PackedScene" uid="uid://bqlpqyywvg3nx" path="res://generic_enemy.tscn" id="4_wnj6n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bus8e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_723ih"]
+size = Vector2(655, 16)
+
+[sub_resource type="Curve2D" id="Curve2D_t1ba5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 81, 0, 0, 0, 0, 0, -164, 0, 0, 0, 0, 0, 81, 0)
+}
+point_count = 3
+
+[node name="home" type="Node2D"]
+
+[node name="floor" type="StaticBody2D" parent="." groups=["staticObj"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="floormesh" type="MeshInstance2D" parent="floor" groups=["staticObj"]]
+position = Vector2(-0.499991, 28)
+scale = Vector2(655, 56)
+mesh = SubResource("BoxMesh_bus8e")
+
+[node name="floorcollide" type="CollisionShape2D" parent="floor" groups=["staticObj"]]
+position = Vector2(-0.5, 8)
+shape = SubResource("RectangleShape2D_723ih")
+
+[node name="player" parent="." instance=ExtResource("1_ang6w")]
+position = Vector2(-287, -30)
+
+[node name="revolver" parent="player/bodygroup/armPart1/armPart2/weapon" index="0"]
+position = Vector2(4, 0)
+
+[node name="bottle" parent="." instance=ExtResource("3_slqtd")]
+position = Vector2(112, -34)
+
+[node name="crate" parent="." instance=ExtResource("4_38gay")]
+position = Vector2(121, -13)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_t1ba5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(81, 0)
+rotation = 3.14159
+rotates = false
+
+[node name="genericEnemy" parent="Path2D/PathFollow2D" instance=ExtResource("4_wnj6n")]
+rotation = 3.14159
+speed = null
+metadata/_edit_lock_ = true
+
+[node name="crate2" parent="." instance=ExtResource("4_38gay")]
+position = Vector2(-224, -13)
+
+[editable path="player"]

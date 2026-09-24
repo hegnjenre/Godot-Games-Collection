@@ -1,0 +1,31 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://brw0ljkxg685d"]
+
+[ext_resource type="Texture2D" uid="uid://ceou5d531qyek" path="res://sprites/effects/empty.png" id="1_kplj3"]
+[ext_resource type="Texture2D" uid="uid://yx07sq3pk7gw" path="res://sprites/effects/jumpEffect1.png" id="1_wdncv"]
+[ext_resource type="Texture2D" uid="uid://cu142ivx8u864" path="res://sprites/effects/jumpEffect2.png" id="2_djdhq"]
+[ext_resource type="Texture2D" uid="uid://o0idd143l0u0" path="res://sprites/effects/jumpEffect3.png" id="3_pwq6o"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kplj3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wdncv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_djdhq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pwq6o")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 16.0
+}]

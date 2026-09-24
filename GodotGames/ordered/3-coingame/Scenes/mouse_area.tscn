@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxpqk5lcqvy5w"]
+
+[ext_resource type="Script" path="res://Scripts/General/mouse_area.gd" id="1_dmoyu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1v0ek"]
+radius = 1.0
+
+[node name="mouseArea" type="Area2D"]
+script = ExtResource("1_dmoyu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1v0ek")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

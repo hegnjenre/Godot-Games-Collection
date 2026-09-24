@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4ivh2e5ud58x"]
+
+[ext_resource type="PackedScene" uid="uid://dd0unvcyjfgyv" path="res://character.tscn" id="1_b8dla"]
+[ext_resource type="PackedScene" uid="uid://clywdj4fupa46" path="res://enemy.tscn" id="2_gxoj3"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_gmfn8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkunc"]
+size = Vector2(686, 22)
+
+[node name="debug" type="Node2D"]
+
+[node name="ground" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ground"]
+position = Vector2(343, 11)
+scale = Vector2(686, 22)
+mesh = SubResource("QuadMesh_gmfn8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+position = Vector2(343, 11)
+shape = SubResource("RectangleShape2D_pkunc")
+
+[node name="character" parent="." instance=ExtResource("1_b8dla")]
+position = Vector2(58, -48)
+
+[node name="enemy" parent="." instance=ExtResource("2_gxoj3")]
+position = Vector2(319, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(343, -173)
+zoom = Vector2(1.7, 1.7)

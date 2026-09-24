@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://celxsjhglyi7p"]
+
+[ext_resource type="PackedScene" uid="uid://brupul73nukc3" path="res://scenes/enemy/ai_super.tscn" id="1_bxj0x"]
+[ext_resource type="Script" uid="uid://b5w0uc3ywtu4j" path="res://scripts/enemy/aiEnemyDrone.gd" id="2_bxj0x"]
+[ext_resource type="SpriteFrames" uid="uid://b87bsslie6fun" path="res://spriteframes/enemy/droneframes.tres" id="2_qab81"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wuxof"]
+radius = 8.0
+
+[node name="aiEnemyDrone" unique_id=755029553 instance=ExtResource("1_bxj0x")]
+script = ExtResource("2_bxj0x")
+topSpeed = 200.0
+slowRate = 12.0
+attTimerCooldown = 0.8
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1415818122]
+sprite_frames = ExtResource("2_qab81")
+
+[node name="laserPoint" type="Marker2D" parent="AnimatedSprite2D" index="0" unique_id=837594716]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1167496659]
+shape = SubResource("CircleShape2D_wuxof")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

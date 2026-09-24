@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://blnwpx6n38y0m"]
+
+[ext_resource type="PackedScene" uid="uid://brupul73nukc3" path="res://scenes/enemy/enemy_super.tscn" id="1_b3c12"]
+[ext_resource type="SpriteFrames" uid="uid://b87bsslie6fun" path="res://spriteframes/enemy/droneframes.tres" id="2_hqvhm"]
+[ext_resource type="Script" path="res://scenes/enemy/enemy_drone.gd" id="2_uupdx"]
+[ext_resource type="PackedScene" uid="uid://c2i6lmw2r2318" path="res://scenes/effects/laser.tscn" id="3_0xjy3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_whr1v"]
+radius = 7.0
+
+[node name="enemyDrone" instance=ExtResource("1_b3c12")]
+script = ExtResource("2_uupdx")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_hqvhm")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_whr1v")
+
+[node name="laser" parent="." index="2" instance=ExtResource("3_0xjy3")]

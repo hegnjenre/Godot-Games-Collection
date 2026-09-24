@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmp58qgolgawa"]
+
+[ext_resource type="Script" path="res://gate.gd" id="1_i0ovj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2c0tf"]
+size = Vector3(1, 4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_346t5"]
+size = Vector3(1, 4, 1)
+
+[node name="Gate" type="StaticBody3D"]
+script = ExtResource("1_i0ovj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2c0tf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_346t5")

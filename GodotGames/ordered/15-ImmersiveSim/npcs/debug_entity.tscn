@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://hxqsxggjseag"]
+
+[ext_resource type="PackedScene" uid="uid://cxfav2jq851it" path="res://npcs/entity.tscn" id="1_iphs2"]
+
+[sub_resource type="Animation" id="Animation_3bdt2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dfpsl"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.21343, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_645mj"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.21343, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aqdv8"]
+resource_name = "spin"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.14159, 0, 3.14159), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nm2jd"]
+_data = {
+"RESET": SubResource("Animation_3bdt2"),
+"in": SubResource("Animation_dfpsl"),
+"out": SubResource("Animation_645mj"),
+"spin": SubResource("Animation_aqdv8")
+}
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6y44r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wdl52"]
+
+[node name="debugEntity" instance=ExtResource("1_iphs2")]
+actionKeys = ["spin"]
+
+[node name="animator" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_nm2jd")
+}
+
+[node name="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_6y44r")
+
+[node name="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_wdl52")

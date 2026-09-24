@@ -1,0 +1,6 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1747176019
+icon.svg::CompressedTexture2D::8362933718401716044::1670500107::1670500121::1::::<><>::
+test_car_2.tscn::PackedScene::3841569633298498896::1682443583::0::1::::<><>::res://test_ray_cast.gd
+test_car_2_scene.tscn::PackedScene::4106794841137101735::1682443583::0::1::::<><>::uid://buy5dcy7e8vm3::::res://test_car_2.tscn
+test_ray_cast.gd::GDScript::-1::1682443385::0::1::::<>RayCast3D<>::

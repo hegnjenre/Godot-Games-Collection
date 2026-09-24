@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3oao74lwfq8f"]
+
+[ext_resource type="PackedScene" uid="uid://bovjiagvru5b" path="res://unit.tscn" id="1_hvv5m"]
+[ext_resource type="PackedScene" uid="uid://qwmh1bjt6tvs" path="res://obstacle.tscn" id="2_ghx0i"]
+
+[node name="root" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 1
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_lock_ = true
+
+[node name="unit1" parent="." instance=ExtResource("1_hvv5m")]
+position = Vector2(185, 538)
+
+[node name="obstacle" parent="." instance=ExtResource("2_ghx0i")]
+position = Vector2(441, 134)
+
+[node name="obstacle2" parent="." instance=ExtResource("2_ghx0i")]
+position = Vector2(72, 8)
+
+[node name="obstacle3" parent="." instance=ExtResource("2_ghx0i")]
+position = Vector2(65, 240)
+
+[node name="obstacle4" parent="." instance=ExtResource("2_ghx0i")]
+position = Vector2(312, 328)
+
+[node name="obstacle5" parent="." instance=ExtResource("2_ghx0i")]
+position = Vector2(558, 360)
+
+[node name="obstacle6" parent="." instance=ExtResource("2_ghx0i")]
+position = Vector2(318, 42)
+
+[node name="obstacle7" parent="." instance=ExtResource("2_ghx0i")]
+position = Vector2(89, 45)
+rotation = 1.5708

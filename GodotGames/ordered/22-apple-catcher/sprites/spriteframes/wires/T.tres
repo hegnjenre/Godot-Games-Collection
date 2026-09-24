@@ -1,0 +1,41 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://brp0jb10go11k"]
+
+[ext_resource type="Texture2D" uid="uid://b76ynwgw52vp8" path="res://sprites/puzzles/pieceT1.png" id="1_k4lek"]
+[ext_resource type="Texture2D" uid="uid://bm4u20yd3nv4p" path="res://sprites/puzzles/pieceT2.png" id="2_tlcwe"]
+[ext_resource type="Texture2D" uid="uid://yl1xlufdfvan" path="res://sprites/puzzles/pieceT3.png" id="3_uoqcn"]
+[ext_resource type="Texture2D" uid="uid://msr0o2a8da3v" path="res://sprites/puzzles/pieceT4.png" id="4_asmvy"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k4lek")
+}],
+"loop": 0,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tlcwe")
+}],
+"loop": 0,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uoqcn")
+}],
+"loop": 0,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_asmvy")
+}],
+"loop": 0,
+"name": &"3",
+"speed": 5.0
+}]

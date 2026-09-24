@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8fssyxa7fb8y"]
+
+[ext_resource type="PackedScene" uid="uid://crjxi245imq47" path="res://Minor Scenes/Blocks/defaultPowerup.tscn" id="1_h5eu3"]
+[ext_resource type="Texture2D" uid="uid://3nbbiagjxbii" path="res://Sprites/ArenaSprites/powerups/WiderPaddle.png" id="2_f6b7k"]
+
+[node name="widerPaddle" instance=ExtResource("1_h5eu3")]
+powerType = "WP"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_f6b7k")

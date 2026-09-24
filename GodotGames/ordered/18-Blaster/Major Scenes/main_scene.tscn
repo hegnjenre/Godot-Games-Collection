@@ -1,0 +1,185 @@
+[gd_scene load_steps=17 format=3 uid="uid://bjws15i02xhmk"]
+
+[ext_resource type="Script" path="res://Major Scenes/main_scene.gd" id="1_3mkfq"]
+[ext_resource type="PackedScene" uid="uid://4talwjt2858t" path="res://Major Scenes/arena.tscn" id="1_of4qm"]
+[ext_resource type="PackedScene" uid="uid://b1s2tk47w7sr7" path="res://Major Scenes/characters/player_char.tscn" id="2_l6ce2"]
+[ext_resource type="PackedScene" uid="uid://d3emkyxu35la0" path="res://Minor Scenes/interactions/elevatorInteract.tscn" id="3_weskv"]
+[ext_resource type="PackedScene" uid="uid://ba0jugw8odib7" path="res://Minor Scenes/carExit/car.tscn" id="4_0jjg1"]
+[ext_resource type="Script" path="res://Major Scenes/endStatsUI.gd" id="6_0rkai"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_58wgq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lucok"]
+size = Vector2(20, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_es5q0"]
+size = Vector2(132, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owc4c"]
+size = Vector2(2, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4q2o"]
+size = Vector2(16, 56)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3e38r"]
+font_size = 40
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gfxpy"]
+font_size = 30
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xabp"]
+font_size = 30
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jw244"]
+font_size = 14
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uf6ov"]
+font_size = 14
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="mainScene" type="Node2D"]
+script = ExtResource("1_3mkfq")
+
+[node name="Arena" parent="." instance=ExtResource("1_of4qm")]
+metadata/_edit_lock_ = true
+
+[node name="path" type="StaticBody2D" parent="." groups=["ground"]]
+position = Vector2(587, 359)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="path"]
+position = Vector2(-5.50002, 6.27339e-06)
+scale = Vector2(117, 2.00003)
+mesh = SubResource("BoxMesh_58wgq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="path"]
+position = Vector2(-88, -11.5)
+shape = SubResource("RectangleShape2D_lucok")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="path"]
+position = Vector2(-13, 0)
+shape = SubResource("RectangleShape2D_es5q0")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="path"]
+position = Vector2(-95, -19)
+shape = SubResource("RectangleShape2D_owc4c")
+
+[node name="playerChar" parent="." instance=ExtResource("2_l6ce2")]
+position = Vector2(590, 352)
+
+[node name="elevatorInteract" parent="." instance=ExtResource("3_weskv")]
+position = Vector2(515, 353)
+
+[node name="car" parent="." instance=ExtResource("4_0jjg1")]
+position = Vector2(625, 358)
+
+[node name="exitArea" type="Area2D" parent="."]
+position = Vector2(640, 337)
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exitArea"]
+position = Vector2(-2, -7)
+shape = SubResource("RectangleShape2D_e4q2o")
+metadata/_edit_lock_ = true
+
+[node name="endStatsUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 117.0
+offset_right = 523.0
+offset_bottom = 360.0
+script = ExtResource("6_0rkai")
+metadata/_edit_lock_ = true
+
+[node name="dayEnd" type="Label" parent="endStatsUI"]
+visible = false
+layout_mode = 0
+offset_left = 121.0
+offset_top = 17.0
+offset_right = 276.0
+offset_bottom = 75.0
+text = "Day End"
+label_settings = SubResource("LabelSettings_3e38r")
+metadata/_edit_lock_ = true
+
+[node name="bits" type="Label" parent="endStatsUI"]
+visible = false
+layout_mode = 0
+offset_left = 285.0
+offset_top = 121.0
+offset_right = 340.0
+offset_bottom = 166.0
+text = "Bits"
+label_settings = SubResource("LabelSettings_gfxpy")
+metadata/_edit_lock_ = true
+
+[node name="coins" type="Label" parent="endStatsUI"]
+visible = false
+layout_mode = 0
+offset_left = 50.0
+offset_top = 121.0
+offset_right = 129.0
+offset_bottom = 167.0
+text = "Gold"
+label_settings = SubResource("LabelSettings_8xabp")
+metadata/_edit_lock_ = true
+
+[node name="bitsNum" type="Label" parent="endStatsUI"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.724
+anchor_top = 0.461
+anchor_right = 0.823
+anchor_bottom = 0.525
+offset_left = 0.0559998
+offset_top = 0.0399933
+offset_right = -0.138
+offset_bottom = -1.52588e-05
+label_settings = SubResource("LabelSettings_jw244")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="coinsNum" type="Label" parent="endStatsUI"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.165
+anchor_top = 0.467
+anchor_right = 0.264
+anchor_bottom = 0.531
+offset_left = 0.00999451
+offset_top = -0.119995
+offset_right = -0.183998
+offset_bottom = -0.160004
+label_settings = SubResource("LabelSettings_uf6ov")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="exitButton" type="Button" parent="endStatsUI"]
+visible = false
+layout_mode = 0
+offset_left = 151.0
+offset_top = 286.0
+offset_right = 241.0
+offset_bottom = 335.0
+text = "Go Home"
+metadata/_edit_lock_ = true
+
+[node name="delay" type="Timer" parent="endStatsUI"]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="body_entered" from="exitArea" to="." method="_on_exit_area_body_entered"]
+[connection signal="timeout" from="endStatsUI/delay" to="endStatsUI" method="_on_delay_timeout"]

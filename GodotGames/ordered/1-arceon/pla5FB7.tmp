@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://0k8eyyrybwaj"]
+
+[ext_resource type="PackedScene" uid="uid://bfn2gnt078edk" path="res://Assets/lowPolyTest.glb" id="1_o133y"]
+[ext_resource type="Script" path="res://player.gd" id="1_oeyhm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1op7w"]
+radius = 0.686232
+height = 4.93863
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.172181, 0)
+script = ExtResource("1_oeyhm")
+
+[node name="playerCollide" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.46044, 0)
+shape = SubResource("CapsuleShape3D_1op7w")
+
+[node name="lowPolyTest" parent="." instance=ExtResource("1_o133y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34861, 0)
+
+[node name="cameraRig" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.23517, -0.117016)
+
+[node name="h" type="Node3D" parent="cameraRig"]
+
+[node name="v" type="Node3D" parent="cameraRig/h"]
+
+[node name="playerCamera" type="Camera3D" parent="cameraRig/h/v"]
+transform = Transform3D(-1, -7.22382e-09, -1.50996e-07, 1.30648e-08, 0.99099, -0.133934, 1.50603e-07, -0.133934, -0.99099, 0, 0.571944, -7.1767)
+rotation_order = 0
+current = true
+fov = 84.6

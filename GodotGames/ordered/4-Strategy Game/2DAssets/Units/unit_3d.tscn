@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://c51mm0wne1iep"]
+
+[ext_resource type="Script" path="res://2DAssets/Units/unit_3d.gd" id="1_5eh6i"]
+
+[node name="Unit3D" type="AnimatedSprite3D" groups=["3DUnitGroup"]]
+billboard = 1
+texture_filter = 0
+script = ExtResource("1_5eh6i")
+
+[node name="Area3D" type="Area3D" parent="." groups=["3DUnitGroup"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["3DUnitGroup"]]
+
+[node name="unitUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="attackButton" type="Button" parent="unitUI"]
+layout_mode = 0
+offset_left = 950.0
+offset_top = 48.0
+offset_right = 1094.0
+offset_bottom = 122.0
+text = "Set Attack Location
+"
+
+[node name="unitName" type="Label" parent="unitUI"]
+layout_mode = 0
+offset_left = 926.0
+offset_top = 10.0
+offset_right = 1129.0
+offset_bottom = 33.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="unitInfo" type="Label" parent="unitUI"]
+layout_mode = 0
+offset_left = 934.0
+offset_top = 146.0
+offset_right = 1126.0
+offset_bottom = 293.0
+autowrap_mode = 2
+
+[connection signal="button_down" from="unitUI/attackButton" to="." method="_on_attack_button_button_down"]

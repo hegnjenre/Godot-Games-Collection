@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bfp0xmhet1wru"]
+
+[ext_resource type="Texture2D" uid="uid://cbkdwgxl5twj0" path="res://sprites/friendly/lildrone/lildrone1.png" id="1_q47eg"]
+[ext_resource type="Texture2D" uid="uid://d1cesmf7jf31j" path="res://sprites/friendly/lildrone/lildrone2.png" id="2_je1rf"]
+[ext_resource type="Texture2D" uid="uid://orp5d4c0f3c5" path="res://sprites/friendly/lildrone/lildrone3.png" id="3_6cckg"]
+[ext_resource type="Texture2D" uid="uid://dvyfq7a8xqwbl" path="res://sprites/friendly/lildrone/lildrone4.png" id="4_gewyg"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q47eg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_je1rf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6cckg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gewyg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]

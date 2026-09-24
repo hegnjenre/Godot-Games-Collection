@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://bj6iwiwp5v06"]
+
+[ext_resource type="Texture2D" uid="uid://d1usj07dnclaa" path="res://sprites/table/table.png" id="1_6xiwr"]
+[ext_resource type="Texture2D" uid="uid://bb6fqrfos5hxl" path="res://sprites/table/tv.png" id="1_wowue"]
+[ext_resource type="Script" uid="uid://bb47tmyrjmvfy" path="res://scripts/table/table_scene.gd" id="1_yuypp"]
+[ext_resource type="PackedScene" uid="uid://ih3t86vt64a3" path="res://scenes/appleCatcherSub/apple_catch.tscn" id="3_kwfdl"]
+[ext_resource type="Texture2D" uid="uid://dfwiogy7ilfn0" path="res://sprites/table/puzzleMat1.png" id="3_uckfm"]
+[ext_resource type="Texture2D" uid="uid://b8i3f4hr1ywxm" path="res://sprites/table/puzzleMat2.png" id="4_oqu4n"]
+[ext_resource type="Texture2D" uid="uid://bn0war8wccspq" path="res://sprites/table/onSwitch2.png" id="5_62m22"]
+[ext_resource type="Texture2D" uid="uid://b3ahmr786avev" path="res://sprites/table/onSwitch1.png" id="6_6paw5"]
+[ext_resource type="Texture2D" uid="uid://cadgk30bq2lse" path="res://sprites/table/buttonL1.png" id="7_625q4"]
+[ext_resource type="Texture2D" uid="uid://cdjm18feky4pd" path="res://sprites/table/buttonL2.png" id="8_o3vyl"]
+[ext_resource type="Texture2D" uid="uid://d1hhig0y53qcn" path="res://sprites/table/buttonR1.png" id="9_lr07j"]
+[ext_resource type="Texture2D" uid="uid://d01t7jfpfg8nr" path="res://sprites/table/buttonR2.png" id="10_k064b"]
+[ext_resource type="Texture2D" uid="uid://dk08igxu2dsvd" path="res://sprites/table/fscreen1.png" id="11_lr07j"]
+[ext_resource type="Texture2D" uid="uid://bbffrhkcwo6w1" path="res://sprites/table/fscreen2.png" id="12_k064b"]
+[ext_resource type="Texture2D" uid="uid://dkh8lmr4oj40g" path="res://sprites/table/puzzleTin1.png" id="15_5id8v"]
+[ext_resource type="PackedScene" uid="uid://der3msb5av76t" path="res://scenes/puzzles/puzzle_scene.tscn" id="15_oqu4n"]
+[ext_resource type="Texture2D" uid="uid://ox1r5cvlm2cl" path="res://sprites/table/puzzleTin2.png" id="16_d7iic"]
+[ext_resource type="Script" uid="uid://lr5ik4gh2id1" path="res://scripts/puzzles/puzzle_choose_control.gd" id="18_d7iic"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7iic"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.14901961, 0.14901961, 0.14901961, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="tableScene" type="Node2D" unique_id=1243623033]
+script = ExtResource("1_yuypp")
+
+[node name="tv" type="Sprite2D" parent="." unique_id=1963252620]
+position = Vector2(640, 180)
+texture = ExtResource("1_wowue")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="tv" unique_id=740746401]
+visible = false
+offset_left = -192.0
+offset_top = -158.0
+offset_right = 192.0
+offset_bottom = 58.0
+metadata/_edit_lock_ = true
+
+[node name="SubViewport" type="SubViewport" parent="tv/SubViewportContainer" unique_id=186807418]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(384, 216)
+size_2d_override = Vector2i(1280, 720)
+size_2d_override_stretch = true
+render_target_update_mode = 0
+
+[node name="AppleCatch" parent="tv/SubViewportContainer/SubViewport" unique_id=28971090 instance=ExtResource("3_kwfdl")]
+metadata/_edit_lock_ = true
+
+[node name="tvControl" type="Control" parent="tv" unique_id=1706788312]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -240.0
+offset_top = 100.0
+offset_right = 239.0
+offset_bottom = 180.0
+
+[node name="TextureButton" type="TextureButton" parent="tv/tvControl" unique_id=763484081]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.104
+anchor_top = 0.37500003
+anchor_right = 0.16700001
+anchor_bottom = 0.625
+offset_left = 0.18399811
+offset_right = 0.006996155
+toggle_mode = true
+texture_normal = ExtResource("5_62m22")
+texture_pressed = ExtResource("6_6paw5")
+metadata/_edit_lock_ = true
+
+[node name="TextureButton2" type="TextureButton" parent="tv/tvControl" unique_id=1586632036]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19800001
+anchor_top = 0.31300002
+anchor_right = 0.261
+anchor_bottom = 0.688
+offset_left = 0.15799713
+offset_top = -0.039985657
+offset_right = -0.019004822
+offset_bottom = -0.039985657
+texture_normal = ExtResource("7_625q4")
+texture_pressed = ExtResource("8_o3vyl")
+metadata/_edit_lock_ = true
+
+[node name="TextureButton3" type="TextureButton" parent="tv/tvControl" unique_id=1094161160]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.282
+anchor_top = 0.31300002
+anchor_right = 0.344
+anchor_bottom = 0.688
+offset_left = -0.07800293
+offset_top = -0.039985657
+offset_right = 0.22393799
+offset_bottom = -0.039985657
+texture_normal = ExtResource("9_lr07j")
+texture_pressed = ExtResource("10_k064b")
+metadata/_edit_lock_ = true
+
+[node name="TextureButton4" type="TextureButton" parent="tv/tvControl" unique_id=1069472868]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37600002
+anchor_top = 0.37500003
+anchor_right = 0.43800002
+anchor_bottom = 0.625
+offset_left = -0.104003906
+offset_right = 0.19795227
+texture_normal = ExtResource("11_lr07j")
+texture_pressed = ExtResource("12_k064b")
+metadata/_edit_lock_ = true
+
+[node name="table" type="Sprite2D" parent="." unique_id=798389389]
+position = Vector2(640, 540)
+texture = ExtResource("1_6xiwr")
+
+[node name="tableControl" type="Control" parent="table" unique_id=53835406]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -320.0
+offset_top = 9.0
+offset_right = 320.0
+offset_bottom = 110.0
+
+[node name="puzzleStart" type="TextureButton" parent="table/tableControl" unique_id=1638627746]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.133
+anchor_top = 0.257
+anchor_right = 0.32000002
+anchor_bottom = 0.851
+offset_left = -0.12000275
+offset_top = 0.042999268
+offset_right = 0.19998169
+offset_bottom = 0.04899597
+texture_normal = ExtResource("3_uckfm")
+texture_hover = ExtResource("4_oqu4n")
+metadata/_edit_lock_ = true
+
+[node name="puzzleChoose" type="TextureButton" parent="table/tableControl" unique_id=1410371661]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47700003
+anchor_top = 0.257
+anchor_right = 0.60200006
+anchor_bottom = 0.851
+offset_left = -0.2800293
+offset_top = 0.042999268
+offset_right = -0.2800293
+offset_bottom = 0.04899597
+texture_normal = ExtResource("15_5id8v")
+texture_hover = ExtResource("16_d7iic")
+
+[node name="puzzleViewport" type="SubViewportContainer" parent="table" unique_id=582290641]
+visible = false
+anchors_preset = -1
+anchor_left = -0.5
+anchor_top = -1.0
+anchor_right = 1.5000001
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = -320.00006
+offset_bottom = -180.0
+
+[node name="SubViewport" type="SubViewport" parent="table/puzzleViewport" unique_id=1027522452]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(1280, 720)
+render_target_update_mode = 0
+
+[node name="puzzleScene" parent="table/puzzleViewport/SubViewport" unique_id=1638815573 instance=ExtResource("15_oqu4n")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=313607361]
+position = Vector2(640, 360)
+metadata/_edit_lock_ = true
+
+[node name="puzzleChooseControl" type="Control" parent="." unique_id=844725695]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("18_d7iic")
+
+[node name="PanelContainer" type="PanelContainer" parent="puzzleChooseControl" unique_id=153425608]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 32.0
+anchor_bottom = 18.0
+
+[node name="Panel" type="Panel" parent="puzzleChooseControl/PanelContainer" unique_id=598734158]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7iic")
+
+[node name="GridContainer" type="GridContainer" parent="puzzleChooseControl" unique_id=1161281553]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 32.0
+anchor_bottom = 18.0
+columns = 4
+
+[connection signal="toggled" from="tv/tvControl/TextureButton" to="." method="_on_texture_button_toggled"]
+[connection signal="button_down" from="tv/tvControl/TextureButton2" to="." method="_on_texture_button_2_button_down"]
+[connection signal="button_up" from="tv/tvControl/TextureButton2" to="." method="_on_texture_button_2_button_up"]
+[connection signal="button_down" from="tv/tvControl/TextureButton3" to="." method="_on_texture_button_3_button_down"]
+[connection signal="button_up" from="tv/tvControl/TextureButton3" to="." method="_on_texture_button_3_button_up"]
+[connection signal="pressed" from="table/tableControl/puzzleStart" to="." method="_on_puzzle_start_pressed"]
+[connection signal="pressed" from="table/tableControl/puzzleChoose" to="." method="_on_puzzle_choose_pressed"]
+[connection signal="puzzle_chosen" from="puzzleChooseControl" to="." method="_on_puzzle_choose_control_puzzle_chosen"]

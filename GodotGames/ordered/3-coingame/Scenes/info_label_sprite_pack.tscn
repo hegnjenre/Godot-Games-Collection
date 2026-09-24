@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://vfygjkg3hrix"]
+
+[ext_resource type="Texture2D" uid="uid://b2tdkiwaophfx" path="res://Assets/pngs/textBoxes/textboxDebug.png" id="1_s0u7c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8era"]
+font_size = 10
+
+[node name="infoLabelSpritePack" type="Sprite2D"]
+visible = false
+position = Vector2(0, -290)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_s0u7c")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -160.0
+offset_right = 320.0
+offset_bottom = 160.0
+metadata/_edit_lock_ = true
+
+[node name="Info" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.322
+anchor_right = 0.912
+anchor_bottom = 0.875
+offset_left = 6.08
+offset_top = -0.0400085
+offset_right = 0.319946
+offset_bottom = -2.00003
+label_settings = SubResource("LabelSettings_o8era")
+autowrap_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 1.125
+anchor_bottom = 1.219
+offset_left = -202.0
+offset_top = -142.0
+offset_right = -198.0
+offset_bottom = -311.08
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true

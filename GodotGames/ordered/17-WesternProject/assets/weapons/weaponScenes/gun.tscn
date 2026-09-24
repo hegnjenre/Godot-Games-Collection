@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://bcoyf206h7bnj"]
+
+[ext_resource type="Texture2D" uid="uid://65in2ipvvfr6" path="res://assets/weapons/revolverAnim/revolver-1.png" id="2_54i0q"]
+[ext_resource type="Texture2D" uid="uid://c4kllkoffoda3" path="res://assets/weapons/revolverAnim/revolver-2.png" id="3_lqsvm"]
+[ext_resource type="Texture2D" uid="uid://bca7f630vsi4t" path="res://assets/weapons/revolverAnim/revolver-3.png" id="4_xkrg4"]
+[ext_resource type="Texture2D" uid="uid://bqbxahatumjth" path="res://assets/weapons/revolverAnim/revolver-4.png" id="5_4glu0"]
+[ext_resource type="Texture2D" uid="uid://ce2df5irx1fv8" path="res://assets/weapons/revolverAnim/revolver-5.png" id="6_dql67"]
+[ext_resource type="Texture2D" uid="uid://cs74kdn55sqqv" path="res://assets/weapons/revolverAnim/revolver-6.png" id="7_l0fyb"]
+[ext_resource type="Script" path="res://weaponFire.gd" id="9_0mfoq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qov6u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_54i0q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 32.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_54i0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lqsvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xkrg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4glu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dql67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l0fyb")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 32.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vcb0g"]
+font_size = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gmfh"]
+size = Vector2(19, 3)
+
+[node name="gun" type="AnimatedSprite2D"]
+z_index = -1
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_qov6u")
+animation = &"fire"
+autoplay = "default"
+script = ExtResource("9_0mfoq")
+cooldown = 0.3
+
+[node name="bulletPos" type="Node2D" parent="."]
+position = Vector2(12, -6)
+
+[node name="needReload" type="Label" parent="bulletPos"]
+visible = false
+offset_left = -21.0
+offset_top = -14.25
+offset_right = 37.0
+offset_bottom = 0.75
+text = "Need to reload
+"
+label_settings = SubResource("LabelSettings_vcb0g")
+
+[node name="gunUI" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -49.0
+offset_top = -31.0
+offset_right = 46.0
+offset_bottom = 28.0
+metadata/_edit_lock_ = true
+
+[node name="shotCooldown" type="Timer" parent="."]
+
+[node name="shotRay" type="RayCast2D" parent="."]
+position = Vector2(11, -7)
+target_position = Vector2(1900, 0)
+collide_with_areas = true
+
+[node name="clipArea" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="collide" type="CollisionShape2D" parent="clipArea"]
+position = Vector2(3, -7)
+shape = SubResource("RectangleShape2D_3gmfh")
+metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="shotCooldown" to="." method="_on_shot_cooldown_timeout"]
+[connection signal="area_entered" from="clipArea" to="." method="_on_clip_area_area_entered"]
+[connection signal="area_exited" from="clipArea" to="." method="_on_clip_area_area_exited"]
+[connection signal="body_entered" from="clipArea" to="." method="_on_clip_area_body_entered"]
+[connection signal="body_exited" from="clipArea" to="." method="_on_clip_area_body_exited"]

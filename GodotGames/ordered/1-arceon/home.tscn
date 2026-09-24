@@ -1,0 +1,150 @@
+[gd_scene load_steps=22 format=3 uid="uid://dolbev65odgca"]
+
+[ext_resource type="PackedScene" uid="uid://0k8eyyrybwaj" path="res://player.tscn" id="1_ewsce"]
+[ext_resource type="PackedScene" uid="uid://bfn2gnt078edk" path="res://Assets/lowPolyTest.glb" id="1_nm2iv"]
+[ext_resource type="PackedScene" uid="uid://b2mbgdqhbqx4j" path="res://cam_area.tscn" id="2_vcm8q"]
+[ext_resource type="PackedScene" uid="uid://26kisrxewgg1" path="res://scene_camera.tscn" id="3_akot1"]
+[ext_resource type="PackedScene" uid="uid://coxsjq3qs73f8" path="res://sign.tscn" id="5_0clw0"]
+[ext_resource type="PackedScene" uid="uid://ceqybvyvp2ikm" path="res://npc.tscn" id="6_bdq41"]
+[ext_resource type="PackedScene" uid="uid://c2vlqy7k6fpv1" path="res://doorProp.tscn" id="7_1ayfv"]
+[ext_resource type="PackedScene" uid="uid://bwulwpvje71kc" path="res://enemy.tscn" id="7_ua6rg"]
+[ext_resource type="PackedScene" uid="uid://dlcvryk2u2yuj" path="res://shopnpc.tscn" id="8_whw8m"]
+[ext_resource type="PackedScene" uid="uid://myrwpiswj0x2" path="res://Assets/items/short_sword.tscn" id="9_bt24v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v12gp"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_0d5c0"]
+sky_material = SubResource("ProceduralSkyMaterial_v12gp")
+
+[sub_resource type="Environment" id="Environment_4qntl"]
+background_mode = 2
+sky = SubResource("Sky_0d5c0")
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dcpce"]
+albedo_color = Color(0.984314, 0.552941, 0.482353, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ukllr"]
+material = SubResource("StandardMaterial3D_dcpce")
+size = Vector2(150, 150)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxj6l"]
+size = Vector3(152.447, 0.01, 150.992)
+
+[sub_resource type="GDScript" id="GDScript_s4354"]
+script/source = "extends Area3D
+
+@onready var cam = $sceneCamera
+
+func _process(delta):
+	pass
+
+func _on_body_entered(body):
+	if body.name != \"player\":
+		return
+	else:
+		cam.current = true
+		cam.target = body
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai4lx"]
+size = Vector3(155.942, 26.5811, 149.943)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wlxob"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d1h6k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pfu7p"]
+radius = 0.693603
+height = 5.28719
+
+[node name="home" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0736181, 1.25313, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 48.1611, -28.6852)
+light_color = Color(1, 1, 0.768627, 1)
+light_energy = 0.39
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4qntl")
+
+[node name="ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ukllr")
+
+[node name="gro" type="StaticBody3D" parent="ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/gro"]
+shape = SubResource("BoxShape3D_fxj6l")
+
+[node name="player" parent="." instance=ExtResource("1_ewsce")]
+transform = Transform3D(-0.998827, 0, -0.048414, 0, 1, 0, 0.048414, 0, -0.998827, 0, 0.451224, 0)
+
+[node name="camArea" parent="." instance=ExtResource("2_vcm8q")]
+script = SubResource("GDScript_s4354")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="camArea"]
+shape = SubResource("BoxShape3D_ai4lx")
+
+[node name="sceneCamera" parent="camArea" instance=ExtResource("3_akot1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687352, 12.6001, 26.4644)
+fov = 95.8
+
+[node name="doorProp" parent="." instance=ExtResource("7_1ayfv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04699, 1.2565, 14.4769)
+
+[node name="signProp" parent="." instance=ExtResource("5_0clw0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6276, 0, 14.4546)
+objectTitle = "sign"
+objectInfo = "It reads: Props"
+
+[node name="cubeNPC" parent="." instance=ExtResource("6_bdq41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.95388, 3.20471, 14.7683)
+dialogueRes = "res://Assets/dialogue/dialogueTest.txt"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cubeNPC"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cubeNPC/StaticBody3D"]
+mesh = SubResource("BoxMesh_wlxob")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cubeNPC/StaticBody3D"]
+shape = SubResource("BoxShape3D_d1h6k")
+
+[node name="Enemy" parent="." instance=ExtResource("7_ua6rg")]
+transform = Transform3D(0.964002, 0, 0.265892, 0, 1, 0, -0.265892, 0, 0.964002, 22.9143, 0.0520682, 14.9)
+health = 150
+
+[node name="SHOPNPC" parent="." instance=ExtResource("8_whw8m")]
+transform = Transform3D(0.0336087, 0, -0.999435, 0, 1, 0, 0.999435, 0, 0.0336087, 19.1989, 1.30959, -2.27841)
+dialogueRes = "res://Assets/dialogue/shopDialogueTest.txt"
+
+[node name="backG" parent="SHOPNPC/infoContainer" index="0"]
+position = Vector2(960, 215)
+
+[node name="title" parent="SHOPNPC/infoContainer" index="1"]
+offset_top = 153.0
+offset_bottom = 176.0
+
+[node name="info" parent="SHOPNPC/infoContainer" index="2"]
+offset_top = 179.0
+offset_bottom = 264.0
+
+[node name="Short Sword" parent="SHOPNPC/shopFront/itemPoints/itemPoint1" index="0" instance=ExtResource("9_bt24v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0999999, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SHOPNPC"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SHOPNPC/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.891539, 0)
+shape = SubResource("CapsuleShape3D_pfu7p")
+
+[node name="lowPolyTest" parent="SHOPNPC/StaticBody3D" instance=ExtResource("1_nm2iv")]
+
+[editable path="cubeNPC"]
+[editable path="SHOPNPC"]
+[editable path="SHOPNPC/shopFront"]

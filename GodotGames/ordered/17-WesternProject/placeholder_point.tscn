@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqkqi8o6i31yq"]
+
+[ext_resource type="Texture2D" uid="uid://ddu7k6nvl8t7m" path="res://assets/placeholderPoint.png" id="1_84pn5"]
+
+[node name="placeholderPoint" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_84pn5")

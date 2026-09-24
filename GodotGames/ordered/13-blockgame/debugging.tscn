@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://t7j2mmncbvve"]
+
+[ext_resource type="Script" path="res://debugging.gd" id="1_jpxv4"]
+[ext_resource type="PackedScene" uid="uid://b8pdcado4o4v6" path="res://scenes/outline_wall.tscn" id="1_usm8v"]
+[ext_resource type="PackedScene" uid="uid://bmlfi070hhuvx" path="res://scenes/block.tscn" id="2_hqq00"]
+
+[node name="debugging" type="Node2D"]
+script = ExtResource("1_jpxv4")
+
+[node name="outline" type="Node2D" parent="."]
+
+[node name="outlineWall" parent="outline" instance=ExtResource("1_usm8v")]
+
+[node name="outlineWall2" parent="outline" instance=ExtResource("1_usm8v")]
+position = Vector2(632, 0)
+
+[node name="outlineWall3" parent="outline" instance=ExtResource("1_usm8v")]
+position = Vector2(316, -316)
+rotation = 1.5708
+
+[node name="outlineWall4" parent="outline" instance=ExtResource("1_usm8v")]
+position = Vector2(316, 316)
+rotation = -1.5708
+
+[node name="playerBlock" parent="." instance=ExtResource("2_hqq00")]
+position = Vector2(332, 224)
+
+[node name="enemyBlock" parent="." instance=ExtResource("2_hqq00")]
+position = Vector2(539, 229)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(318, 1)

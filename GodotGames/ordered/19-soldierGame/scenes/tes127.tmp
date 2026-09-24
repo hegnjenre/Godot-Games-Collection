@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6abspawvmlep"]
+
+[ext_resource type="Script" path="res://scenes/barracks.gd" id="1_3fagv"]
+[ext_resource type="LabelSettings" uid="uid://bj071f34ukp3n" path="res://text/LabelSettings/leftUI.tres" id="2_4gsl2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xjilw"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t05eh"]
+font_size = 28
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_3fagv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, -324)
+
+[node name="charPoint1" type="Node2D" parent="."]
+position = Vector2(368, -465)
+
+[node name="charPoint2" type="Node2D" parent="."]
+position = Vector2(664, -465)
+
+[node name="charPoint3" type="Node2D" parent="."]
+position = Vector2(960, -465)
+
+[node name="charPoint4" type="Node2D" parent="."]
+position = Vector2(368, -170)
+
+[node name="charPoint5" type="Node2D" parent="."]
+position = Vector2(664, -170)
+
+[node name="charPoint6" type="Node2D" parent="."]
+position = Vector2(960, -170)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+top_level = true
+layout_mode = 0
+offset_left = 27.0
+offset_top = -76.0
+offset_right = 158.0
+offset_bottom = -26.0
+text = "New Characters"
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_top = -648.0
+offset_right = 180.0
+color = Color(0.341176, 0.341176, 0.341176, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect"]
+offset_left = 180.0
+offset_right = 1152.0
+offset_bottom = 52.0
+color = Color(0.341176, 0.341176, 0.341176, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -633.0
+offset_right = 169.0
+offset_bottom = -580.0
+color = Color(0.25098, 0.25098, 0.25098, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -566.0
+offset_right = 169.0
+offset_bottom = -16.0
+color = Color(0.25098, 0.25098, 0.25098, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 366.0
+offset_top = -644.0
+offset_right = 963.0
+offset_bottom = -600.0
+color = Color(0.25098, 0.25098, 0.25098, 1)
+metadata/_edit_lock_ = true
+
+[node name="TableName" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -633.0
+offset_right = 169.0
+offset_bottom = -580.0
+label_settings = ExtResource("2_4gsl2")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="TableStats" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -561.0
+offset_right = 164.0
+offset_bottom = -21.0
+label_settings = SubResource("LabelSettings_xjilw")
+autowrap_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 366.0
+offset_top = -644.0
+offset_right = 963.0
+offset_bottom = -600.0
+text = "Barracks"
+label_settings = SubResource("LabelSettings_t05eh")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

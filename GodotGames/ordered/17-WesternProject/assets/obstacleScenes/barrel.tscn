@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ducgyvclsqwlu"]
+
+[ext_resource type="PackedScene" uid="uid://0afxmvaeckoj" path="res://assets/obstacleScenes/obstacle.tscn" id="1_anwjc"]
+[ext_resource type="Texture2D" uid="uid://dem2gami10ay7" path="res://assets/obstacle/barrel.png" id="2_j2fox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_682ul"]
+size = Vector2(12, 16)
+
+[node name="obstacle" instance=ExtResource("1_anwjc")]
+
+[node name="stBody" parent="." index="0"]
+scale = Vector2(2, 2)
+
+[node name="sprite" parent="stBody" index="0"]
+texture = ExtResource("2_j2fox")
+
+[node name="Collide" parent="stBody" index="1"]
+shape = SubResource("RectangleShape2D_682ul")

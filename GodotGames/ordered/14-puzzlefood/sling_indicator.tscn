@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dogaw3spm54u1"]
+
+[node name="slingIndicator" type="Line2D"]

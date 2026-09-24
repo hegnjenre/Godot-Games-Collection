@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd0unvcyjfgyv"]
+
+[ext_resource type="Script" path="res://character.gd" id="1_w1ses"]
+[ext_resource type="LabelSettings" uid="uid://dc8x384pjawk1" path="res://debug_text.tres" id="2_q6tgf"]
+[ext_resource type="Texture2D" uid="uid://docqvfss6r7il" path="res://sprites/characters/character.png" id="2_xyakd"]
+[ext_resource type="SpriteFrames" uid="uid://dalt4yckba4ai" path="res://attack.tres" id="3_s0vv1"]
+[ext_resource type="SpriteFrames" uid="uid://brw0ljkxg685d" path="res://jump.tres" id="4_33rul"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxtwa"]
+size = Vector2(22, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycw68"]
+size = Vector2(14, 46)
+
+[node name="character" type="CharacterBody2D"]
+script = ExtResource("1_w1ses")
+
+[node name="body" type="Sprite2D" parent="."]
+position = Vector2(0, -23)
+texture = ExtResource("2_xyakd")
+metadata/_edit_lock_ = true
+
+[node name="attackAnimation" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(18, -25)
+sprite_frames = ExtResource("3_s0vv1")
+autoplay = "default"
+metadata/_edit_lock_ = true
+
+[node name="jumpAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("4_33rul")
+autoplay = "default"
+metadata/_edit_lock_ = true
+
+[node name="attackArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea"]
+position = Vector2(18, -25)
+shape = SubResource("RectangleShape2D_rxtwa")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -23)
+shape = SubResource("RectangleShape2D_ycw68")
+
+[node name="shotRay" type="RayCast2D" parent="."]
+position = Vector2(7, -31)
+target_position = Vector2(3000, 0)
+hit_from_inside = true
+collide_with_areas = true
+metadata/_edit_lock_ = true
+
+[node name="laserPoint" type="Node2D" parent="."]
+visible = false
+position = Vector2(7, -31)
+metadata/_edit_lock_ = true
+
+[node name="laser" type="Line2D" parent="."]
+points = PackedVector2Array(10, -32)
+width = 3.0
+default_color = Color(1, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="debug" type="Node2D" parent="."]
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="debugText" type="Control" parent="debug"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="velocity" type="Label" parent="debug/debugText"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -39.0
+offset_right = 101.0
+offset_bottom = -16.0
+text = "Velocity:"
+label_settings = ExtResource("2_q6tgf")
+autowrap_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="debug/debugText"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = -36.0
+offset_right = 79.0
+offset_bottom = -29.0
+step = 0.1
+show_percentage = false
+metadata/_edit_lock_ = true
+
+[node name="input_dir" type="Label" parent="debug/debugText"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -30.0
+offset_right = 101.0
+offset_bottom = -7.0
+label_settings = ExtResource("2_q6tgf")
+autowrap_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="MarkerR" type="Marker2D" parent="."]
+position = Vector2(18, -25)
+gizmo_extents = 4.0
+metadata/_edit_lock_ = true
+
+[node name="MarkerL" type="Marker2D" parent="."]
+position = Vector2(-18, -25)
+gizmo_extents = 4.0
+metadata/_edit_lock_ = true
+
+[connection signal="animation_finished" from="attackAnimation" to="." method="_on_attack_animation_animation_finished"]
+[connection signal="animation_finished" from="jumpAnimation" to="." method="_on_jump_animation_animation_finished"]
+[connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="attackArea" to="." method="_on_attack_area_body_exited"]

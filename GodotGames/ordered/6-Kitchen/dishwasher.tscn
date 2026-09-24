@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn4qvwjtat75m"]
+
+[ext_resource type="Texture2D" uid="uid://cxpdg2mvp77ec" path="res://assets/character1.png" id="2_qpetc"]
+[ext_resource type="Script" path="res://dishwasher.gd" id="2_rcw2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qies0"]
+size = Vector2(22, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7xb13"]
+radius = 19.0
+
+[node name="dishwasher" type="CharacterBody2D"]
+visibility_layer = 2
+z_index = 1
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("2_rcw2w")
+
+[node name="washerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_qpetc")
+
+[node name="armArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="armCollide" type="CollisionShape2D" parent="armArea"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_qies0")
+
+[node name="bodyCollide" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7xb13")
+metadata/_edit_lock_ = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 40.0
+path_max_distance = 200.0
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[connection signal="area_entered" from="armArea" to="." method="_on_arm_area_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

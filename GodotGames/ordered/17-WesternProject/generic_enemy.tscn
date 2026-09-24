@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqlpqyywvg3nx"]
+
+[ext_resource type="PackedScene" uid="uid://xkkiprlp6jy6" path="res://enemy.tscn" id="1_54wmg"]
+[ext_resource type="Script" path="res://generic_enemy.gd" id="2_uiesh"]
+[ext_resource type="SpriteFrames" uid="uid://bn7o33q4g2hm5" path="res://assets/enemies/spriteframes/genericEnemy.tres" id="3_uildh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olg1o"]
+size = Vector2(18, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01kw7"]
+size = Vector2(12, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42nnl"]
+size = Vector2(14, 14)
+
+[node name="genericEnemy" instance=ExtResource("1_54wmg")]
+script = ExtResource("2_uiesh")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("3_uildh")
+animation = &"idle"
+
+[node name="worldcollide" parent="." index="1"]
+position = Vector2(0, -23)
+shape = SubResource("RectangleShape2D_olg1o")
+
+[node name="collide" parent="colliders/headArea" index="0"]
+position = Vector2(0, -16)
+
+[node name="collide" type="CollisionShape2D" parent="colliders/torsoArea" index="0"]
+shape = SubResource("RectangleShape2D_01kw7")
+
+[node name="collide" type="CollisionShape2D" parent="colliders/legArea" index="0"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_42nnl")
+
+[node name="rayCasts" parent="." index="3"]
+position = Vector2(0, -20)
+
+[node name="leftCast" parent="rayCasts" index="0"]
+target_position = Vector2(-450, 0)
+collision_mask = 256
+collide_with_areas = false
+collide_with_bodies = true
+
+[node name="rightCast" parent="rayCasts" index="1"]
+target_position = Vector2(450, 0)
+collision_mask = 256
+collide_with_areas = false
+collide_with_bodies = true
+
+[node name="visionCast" parent="rayCasts" index="2"]
+position = Vector2(0, -19)
+target_position = Vector2(200, 0)
+collide_with_areas = true
+
+[node name="enemyUI" parent="." index="4"]
+offset_left = -16.0
+offset_top = -71.0
+offset_right = 16.0
+offset_bottom = -46.0
+
+[node name="aiming" parent="enemyUI" index="0"]
+position = Vector2(16, 17)

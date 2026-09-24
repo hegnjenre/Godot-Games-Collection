@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfev3fkjygoh8"]
+
+[ext_resource type="Texture2D" uid="uid://xy5j46fphmav" path="res://sprites/weapon/arrow1.png" id="1_6b241"]
+[ext_resource type="Texture2D" uid="uid://c8xcr5xttfj48" path="res://sprites/weapon/arrow2.png" id="2_82bip"]
+[ext_resource type="Texture2D" uid="uid://dbrrtthttm5mc" path="res://sprites/weapon/arrow3.png" id="3_3d6c2"]
+[ext_resource type="Texture2D" uid="uid://bwh1jdt36qfwp" path="res://sprites/weapon/arrow4.png" id="4_xie8g"]
+[ext_resource type="Texture2D" uid="uid://cf2cr007g4n0w" path="res://sprites/weapon/arrow5.png" id="5_dxcbt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5x8kv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6b241")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_82bip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3d6c2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xie8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dxcbt")
+}],
+"loop": false,
+"name": &"boing",
+"speed": 12.0
+}]
+
+[node name="arrowStatic" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_5x8kv")
+animation = &"boing"
+autoplay = "boing"

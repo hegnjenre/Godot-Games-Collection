@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cdviy73eh2k3"]
+
+[ext_resource type="Script" uid="uid://bsjloboetmvpk" path="res://scenes/UI/scripts/building_button.gd" id="1_818y1"]
+
+[node name="Button" type="Button" unique_id=1793432019]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+anchors_preset = -1
+anchor_right = 0.028
+anchor_bottom = 0.049000002
+offset_right = 23.744
+offset_bottom = 24.248
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_818y1")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

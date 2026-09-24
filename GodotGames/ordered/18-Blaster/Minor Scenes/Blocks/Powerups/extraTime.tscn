@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw4netbme0yxr"]
+
+[ext_resource type="PackedScene" uid="uid://crjxi245imq47" path="res://Minor Scenes/Blocks/defaultPowerup.tscn" id="1_3qhsp"]
+[ext_resource type="Texture2D" uid="uid://3ubbsnxoqmmr" path="res://Sprites/ArenaSprites/powerups/ExtraTime.png" id="2_71ovn"]
+
+[node name="extraTime" instance=ExtResource("1_3qhsp")]
+powerType = "ET"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_71ovn")
+offset = Vector2(0, -1)

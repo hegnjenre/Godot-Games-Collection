@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://0afxmvaeckoj"]
+
+[node name="obstacle" type="Node2D" groups=["obstacle"]]
+
+[node name="stBody" type="StaticBody2D" parent="." groups=["obstacle"]]
+
+[node name="sprite" type="Sprite2D" parent="stBody" groups=["obstacle"]]
+
+[node name="Collide" type="CollisionShape2D" parent="stBody" groups=["obstacle"]]

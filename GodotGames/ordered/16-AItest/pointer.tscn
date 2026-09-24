@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://qvaojc2cu2qr"]
+
+[ext_resource type="Script" path="res://pointer.gd" id="1_cncog"]
+[ext_resource type="Texture2D" uid="uid://bxrxdmnu1v3mp" path="res://icon.svg" id="2_i61gt"]
+
+[node name="pointer" type="Node2D"]
+script = ExtResource("1_cncog")
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 4.0
+default_color = Color(0.678431, 0.529412, 0.203922, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3.8147e-06, 3.8147e-06)
+scale = Vector2(0.109375, 0.109375)
+texture = ExtResource("2_i61gt")

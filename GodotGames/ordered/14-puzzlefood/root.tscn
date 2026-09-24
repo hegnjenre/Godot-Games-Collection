@@ -1,0 +1,86 @@
+[gd_scene load_steps=15 format=3 uid="uid://dq2j5bu6yrl0r"]
+
+[ext_resource type="PackedScene" uid="uid://clblqcmqrvcce" path="res://block.tscn" id="1_rbcdm"]
+[ext_resource type="PackedScene" uid="uid://d2j01kqpxvfu3" path="res://ball.tscn" id="1_ug8fg"]
+[ext_resource type="Script" path="res://ball.gd" id="2_44j2g"]
+[ext_resource type="Script" path="res://camera.gd" id="3_ct1hw"]
+[ext_resource type="PackedScene" uid="uid://qlxmlbhx5inr" path="res://goal.tscn" id="3_t8l4t"]
+[ext_resource type="Script" path="res://goal.gd" id="5_48cxc"]
+[ext_resource type="PackedScene" uid="uid://cmp58qgolgawa" path="res://gate.tscn" id="6_h8hfd"]
+[ext_resource type="PackedScene" uid="uid://d2ednq1v0no3l" path="res://button.tscn" id="7_0bf5c"]
+[ext_resource type="PackedScene" uid="uid://bq5srflrjkfqe" path="res://mouse_pointer.tscn" id="9_v3dlg"]
+[ext_resource type="PackedScene" uid="uid://c5td6tseidt73" path="res://physObj.tscn" id="10_t6pj1"]
+[ext_resource type="PackedScene" uid="uid://6014ki7tbqsx" path="res://2d_layer.tscn" id="11_vrhkw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tyunf"]
+size = Vector3(28.0724, 13.5659, 0.01)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mcuii"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rt2jc"]
+size = Vector3(10, 1, 1)
+
+[node name="root" type="Node3D"]
+
+[node name="mouseHit" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mouseHit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.14249, 0)
+shape = SubResource("BoxShape3D_tyunf")
+
+[node name="mousePointer" parent="." instance=ExtResource("9_v3dlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2157, 0)
+
+[node name="ball" parent="." instance=ExtResource("1_ug8fg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.81163, 8.76182, 0)
+script = ExtResource("2_44j2g")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.47635, 9.80483)
+fov = 73.125
+script = ExtResource("3_ct1hw")
+
+[node name="floor" parent="." instance=ExtResource("1_rbcdm")]
+
+[node name="block2" parent="." instance=ExtResource("1_rbcdm")]
+transform = Transform3D(0.957133, 0.28965, 0, -0.28965, 0.957133, 0, 0, 0, 1, -5.04071, 5.83379, 0)
+
+[node name="blockMesh" parent="block2" index="0"]
+mesh = SubResource("BoxMesh_mcuii")
+
+[node name="CollisionShape3D" parent="block2" index="1"]
+shape = SubResource("BoxShape3D_rt2jc")
+
+[node name="goal" parent="." instance=ExtResource("3_t8l4t")]
+script = ExtResource("5_48cxc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 12, -1)
+light_color = Color(1, 1, 0.631373, 1)
+directional_shadow_split_1 = 0.205
+directional_shadow_fade_start = 0.524
+sky_mode = 1
+
+[node name="Gate" parent="." node_paths=PackedStringArray("connectedSystem") instance=ExtResource("6_h8hfd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 5.90838, 0)
+connectedSystem = NodePath("../Button")
+
+[node name="Button" parent="." instance=ExtResource("7_0bf5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4485, 0.584694, 0)
+
+[node name="physObj" parent="." instance=ExtResource("10_t6pj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53867, 0)
+
+[node name="2DLayer" parent="." instance=ExtResource("11_vrhkw")]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+
+[connection signal="body_entered" from="goal" to="goal" method="_on_body_entered"]
+
+[editable path="block2"]

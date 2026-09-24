@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpws4j2rdguo0"]
+
+[ext_resource type="PackedScene" uid="uid://c51p812rhk0us" path="res://3D/SCENES/Characters/PLAYER/playercharacter.tscn" id="1_x5ra3"]
+[ext_resource type="Texture2D" uid="uid://bmciou4n8otb2" path="res://2D/PLAYERUI/Viewmodels/viewmodel_placeholder.png" id="2_wvnus"]
+
+[node name="MainPlayer" instance=ExtResource("1_x5ra3")]
+
+[node name="Sprite3D" parent="." index="0"]
+texture = ExtResource("2_wvnus")
+
+[node name="CamPoint" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="Camera3D" parent="CamPoint" index="0"]
+fov = 57.4622

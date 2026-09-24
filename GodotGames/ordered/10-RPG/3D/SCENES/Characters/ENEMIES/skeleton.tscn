@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8em26lvliy4x"]
+
+[ext_resource type="PackedScene" uid="uid://ddc30mvdc4dqw" path="res://3D/SCENES/Characters/character.tscn" id="1_ordw4"]
+[ext_resource type="Texture2D" uid="uid://dv5uv6q6m23cw" path="res://2D/CHARACTERSPRITES/ENEMIES/SkeletonPlaceholder.png" id="2_xs303"]
+
+[node name="Skeleton" instance=ExtResource("1_ordw4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 1.54414, 0)
+
+[node name="Sprite3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.160693, 0)
+texture = ExtResource("2_xs303")

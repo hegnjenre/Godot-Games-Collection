@@ -1,0 +1,17 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://chqgjxylptflb"]
+
+[ext_resource type="Texture2D" uid="uid://c7abpoas2sq1n" path="res://Assets/pngs/coins/Peuro/1Peuro/1PeuroTail.png" id="1_dt7t6"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dt7t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_dt7t6")
+}],
+"loop": false,
+"name": &"flip",
+"speed": 8.0
+}]

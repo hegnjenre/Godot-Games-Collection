@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://6rb7it4y6b3m"]
+
+[ext_resource type="PackedScene" uid="uid://btxrttu12hp6n" path="res://scenes/puzzles/master_wire.tscn" id="1_6pvf3"]
+[ext_resource type="SpriteFrames" uid="uid://ck2b4ylb1cgv7" path="res://sprites/spriteframes/wires/L.tres" id="2_3a3ej"]
+
+[node name="LWire" unique_id=781965506 instance=ExtResource("1_6pvf3")]
+rotatable = true
+maxRot = 4
+validDirections = {
+"down": true,
+"left": false,
+"right": true,
+"up": false
+}
+rotatedDirections = {
+0: {
+"down": true,
+"left": false,
+"right": true,
+"up": false
+},
+1: {
+"down": false,
+"left": false,
+"right": true,
+"up": true
+},
+2: {
+"down": false,
+"left": true,
+"right": false,
+"up": true
+},
+3: {
+"down": true,
+"left": true,
+"right": false,
+"up": false
+}
+}
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1644814822]
+sprite_frames = ExtResource("2_3a3ej")
+animation = &"0"

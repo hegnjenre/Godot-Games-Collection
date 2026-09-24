@@ -1,0 +1,189 @@
+[gd_scene load_steps=22 format=3 uid="uid://bscw7q8y5yhe8"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_pho8w"]
+[ext_resource type="Texture2D" uid="uid://cdhve7f2pyiyi" path="res://assets/player/idle/playerStick1.png" id="2_8nrme"]
+[ext_resource type="Texture2D" uid="uid://ya6ph6u0mjv1" path="res://assets/crosshair.png" id="2_ah862"]
+[ext_resource type="Texture2D" uid="uid://d3xxkoecqnlwi" path="res://assets/player/stickCrouch.png" id="2_yhi7t"]
+[ext_resource type="Texture2D" uid="uid://b54xt8wmnnf4j" path="res://assets/player/idle/playerStick2.png" id="3_tsn5l"]
+[ext_resource type="Texture2D" uid="uid://cwev0wbs0yy2i" path="res://assets/player/walk/walk1.png" id="4_c0h5t"]
+[ext_resource type="Texture2D" uid="uid://c6ros7bo3yds0" path="res://assets/player/idle/arm/arm1.png" id="4_nt3ga"]
+[ext_resource type="Texture2D" uid="uid://i6cmlbv2my1n" path="res://assets/player/idle/arm/arm2.png" id="5_072rp"]
+[ext_resource type="Texture2D" uid="uid://boqkrkd11wb20" path="res://assets/player/walk/walk2.png" id="5_h4rbb"]
+[ext_resource type="Texture2D" uid="uid://cqa5546afjy3d" path="res://assets/player/walk/walk3.png" id="6_4dpnd"]
+[ext_resource type="PackedScene" uid="uid://bcoyf206h7bnj" path="res://assets/weapons/weaponScenes/gun.tscn" id="6_sgjfg"]
+[ext_resource type="Texture2D" uid="uid://jvxr8x4ny3g2" path="res://assets/player/walk/walk4.png" id="7_7klce"]
+[ext_resource type="Texture2D" uid="uid://gqknt5jqlkjs" path="res://assets/player/walk/walk5.png" id="8_22b1e"]
+[ext_resource type="Texture2D" uid="uid://dedb1vvlj8au1" path="res://assets/player/walk/walk6.png" id="9_2ufey"]
+[ext_resource type="Texture2D" uid="uid://cuba1owlplm2a" path="res://assets/player/walk/walk7.png" id="10_808ef"]
+[ext_resource type="Texture2D" uid="uid://ddgf5lj40m82w" path="res://assets/player/walk/walk8.png" id="11_xm3ws"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_or4kp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yhi7t")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8nrme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8nrme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tsn5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tsn5l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_c0h5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h4rbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4dpnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7klce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_22b1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2ufey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_808ef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xm3ws")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2x5wb"]
+size = Vector2(15, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qip8p"]
+size = Vector2(15, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_so2wk"]
+size = Vector2(44, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2o01y"]
+radius = 8.0
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(0, -30)
+script = ExtResource("1_pho8w")
+
+[node name="bodygroup" type="Node2D" parent="."]
+position = Vector2(-0.5, 7)
+
+[node name="body" type="AnimatedSprite2D" parent="bodygroup"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_or4kp")
+animation = &"idle"
+autoplay = "idle"
+metadata/_edit_lock_ = true
+
+[node name="crouchNode" type="Node2D" parent="bodygroup"]
+position = Vector2(0.5, 7)
+
+[node name="armPart1" type="Sprite2D" parent="bodygroup"]
+position = Vector2(0.5, -4)
+rotation = 1.5708
+texture = ExtResource("4_nt3ga")
+offset = Vector2(1.94819, 1.3411e-05)
+metadata/_edit_lock_ = true
+
+[node name="armPoint" type="Node2D" parent="bodygroup/armPart1"]
+position = Vector2(0.043808, 0.0415118)
+metadata/_edit_lock_ = true
+
+[node name="armPart2" type="Sprite2D" parent="bodygroup/armPart1"]
+position = Vector2(3.95619, -1.90735e-06)
+texture = ExtResource("5_072rp")
+offset = Vector2(2.83668, 0.0302709)
+metadata/_edit_lock_ = true
+
+[node name="aimPrevent" type="Node2D" parent="bodygroup/armPart1/armPart2"]
+position = Vector2(-1.90735e-06, 2.98023e-08)
+metadata/_edit_lock_ = true
+
+[node name="rotatePoint" type="Node2D" parent="bodygroup/armPart1/armPart2"]
+position = Vector2(4.00001, 2.99998)
+metadata/_edit_lock_ = true
+
+[node name="weapon" type="Node2D" parent="bodygroup/armPart1/armPart2"]
+position = Vector2(15.9375, -1)
+rotation = -0.0113782
+
+[node name="revolver" parent="bodygroup/armPart1/armPart2/weapon" instance=ExtResource("6_sgjfg")]
+position = Vector2(-6.99176, 0.87896)
+scale = Vector2(0.5, 0.5)
+autoplay = ""
+offset = Vector2(9, -2)
+metadata/_edit_lock_ = true
+
+[node name="collider" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 7)
+shape = SubResource("RectangleShape2D_2x5wb")
+metadata/_edit_lock_ = true
+
+[node name="crouchCollide" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 15.5)
+shape = SubResource("RectangleShape2D_qip8p")
+disabled = true
+metadata/_edit_lock_ = true
+
+[node name="slideCollide" type="CollisionShape2D" parent="."]
+position = Vector2(16, 24)
+shape = SubResource("RectangleShape2D_so2wk")
+disabled = true
+metadata/_edit_lock_ = true
+
+[node name="crosshair" type="Sprite2D" parent="."]
+position = Vector2(0, -24.5)
+scale = Vector2(0.5, 0.53125)
+texture = ExtResource("2_ah862")
+
+[node name="crossCollider" type="Area2D" parent="."]
+position = Vector2(0, -24.5)
+
+[node name="crossCollide" type="CollisionShape2D" parent="crossCollider"]
+shape = SubResource("CircleShape2D_2o01y")
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(0, -8)
+zoom = Vector2(3.25, 3.25)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -177.0
+offset_top = -108.0
+offset_right = 177.0
+offset_bottom = 92.0
+metadata/_edit_lock_ = true
+
+[node name="ammoCount" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 82.0
+offset_bottom = 27.0
+
+[connection signal="body_entered" from="crossCollider" to="." method="_on_cross_collider_body_entered"]
+[connection signal="body_exited" from="crossCollider" to="." method="_on_cross_collider_body_exited"]

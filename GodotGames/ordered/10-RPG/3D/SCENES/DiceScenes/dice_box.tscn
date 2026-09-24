@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxyifcdhfmhph"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_os21d"]
+size = Vector3(2, 0.01, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cyerw"]
+size = Vector3(0.01, 2, 2)
+
+[node name="diceBox" type="StaticBody3D"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+
+[node name="floor" type="StaticBody3D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("BoxShape3D_os21d")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.8, 0)
+shape = SubResource("BoxShape3D_os21d")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.4, 0.4, 0)
+shape = SubResource("BoxShape3D_cyerw")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, 0, 0.4, 0.4)
+shape = SubResource("BoxShape3D_cyerw")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.4, 0.4, 0)
+shape = SubResource("BoxShape3D_cyerw")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, 0, 0.4, -0.4)
+shape = SubResource("BoxShape3D_cyerw")

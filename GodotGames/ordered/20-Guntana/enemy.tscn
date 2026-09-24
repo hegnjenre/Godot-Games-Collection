@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://clywdj4fupa46"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_01xw6"]
+[ext_resource type="LabelSettings" uid="uid://dc8x384pjawk1" path="res://debug_text.tres" id="2_8ubhp"]
+[ext_resource type="Texture2D" uid="uid://d0i27r0r3yfa" path="res://sprites/characters/dummy.png" id="3_rleui"]
+
+[node name="enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 3
+script = ExtResource("1_01xw6")
+
+[node name="debug" type="Node2D" parent="."]
+
+[node name="debugText" type="Control" parent="debug"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="health" type="Label" parent="debug/debugText"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = -51.0
+offset_right = 61.0
+offset_bottom = -28.0
+label_settings = ExtResource("2_8ubhp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -24)
+texture = ExtResource("3_rleui")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(2, 0, 0, 0, 0, -5, -1, -5, -1, -13, -2, -13, -2, -14, -3, -14, -3, -15, -4, -15, -4, -17, -5, -17, -5, -20, -6, -20, -6, -22, -6, -23, -7, -23, -7, -29, -6, -29, -6, -30, -6, -34, -4, -34, -4, -35, -5, -35, -5, -37, -5, -38, -6, -38, -6, -42, -5, -42, -5, -44, -4, -44, -4, -45, -1, -45, -1, -47, 1, -47, 1, -45, 4, -45, 4, -44, 5, -44, 5, -43, 5, -42, 5, -39, 4, -39, 4, -36, 3, -36, 3, -34, 6, -34, 6, -30, 6, -17, 5, -17, 5, -14, 4, -14, 4, -13, 1, -13, 1, -7, 2, -7)

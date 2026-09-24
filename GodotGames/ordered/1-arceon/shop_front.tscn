@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://byh8mhpl82jra"]
+
+[ext_resource type="Script" path="res://shop.gd" id="1_htoqj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cwaee"]
+size = Vector3(0.3, 2.5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2c7y2"]
+size = Vector3(0.6, 1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hi2ec"]
+size = Vector3(0.4, 0.2, 0.4)
+
+[node name="shopFront" type="Node3D"]
+script = ExtResource("1_htoqj")
+
+[node name="shopmesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+mesh = SubResource("BoxMesh_cwaee")
+
+[node name="shelf" type="MeshInstance3D" parent="shopmesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.379697, -0.773693, 0)
+mesh = SubResource("BoxMesh_2c7y2")
+
+[node name="pedestal" type="MeshInstance3D" parent="shopmesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.382237, -0.306193, -1.77382)
+mesh = SubResource("BoxMesh_hi2ec")
+
+[node name="pedestal2" type="MeshInstance3D" parent="shopmesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.382237, -0.306193, -0.958591)
+mesh = SubResource("BoxMesh_hi2ec")
+
+[node name="pedestal3" type="MeshInstance3D" parent="shopmesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.382237, -0.306193, -0.201524)
+mesh = SubResource("BoxMesh_hi2ec")
+
+[node name="pedestal4" type="MeshInstance3D" parent="shopmesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.382237, -0.306193, 0.578168)
+mesh = SubResource("BoxMesh_hi2ec")
+
+[node name="pedestal5" type="MeshInstance3D" parent="shopmesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.382237, -0.306193, 1.46894)
+mesh = SubResource("BoxMesh_hi2ec")
+
+[node name="shopCam" type="Camera3D" parent="."]
+transform = Transform3D(-4.29761e-08, 0.182647, -0.983179, 7.98377e-09, 0.983179, 0.182647, 1, -1.06581e-14, -4.37114e-08, -3.02734, 2.03606, 0)
+fov = 83.2848
+
+[node name="itemPoints" type="Node3D" parent="."]
+
+[node name="itemPoint1" type="Node3D" parent="itemPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.412451, 1.0952, -1.74088)
+
+[node name="itemPoint2" type="Node3D" parent="itemPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.408998, 1.0952, -0.91577)
+
+[node name="itemPoint3" type="Node3D" parent="itemPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.408998, 1.0952, -0.176767)
+
+[node name="itemPoint4" type="Node3D" parent="itemPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.408998, 1.0952, 0.609083)
+
+[node name="itemPoint5" type="Node3D" parent="itemPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.408998, 1.0952, 1.49734)

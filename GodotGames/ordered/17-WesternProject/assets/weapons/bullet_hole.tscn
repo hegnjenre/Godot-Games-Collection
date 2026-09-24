@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cixhyrd7e24wl"]
+
+[ext_resource type="Texture2D" uid="uid://c7q68n6c0c7sr" path="res://assets/player/bulletHole.png" id="1_3g4us"]
+
+[node name="bulletHole" type="Node2D"]
+z_index = 1
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_3g4us")
+metadata/_edit_lock_ = true

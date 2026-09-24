@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt2pdc4tofq2u"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_4sc68"]
+[ext_resource type="Texture2D" uid="uid://bk4ngalwquyb0" path="res://beacon.png" id="2_ug810"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_odxtq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ue7a2"]
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_4sc68")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_odxtq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_ue7a2")
+
+[node name="camRig" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="camRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56, -0.20041)
+
+[node name="interactRay" type="RayCast3D" parent="camRig/Camera3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.1, -0.3)
+target_position = Vector3(1.4, 0, 0)
+hit_from_inside = true
+
+[node name="flashPoint" type="Node3D" parent="camRig/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="camRig/Camera3D/flashPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+light_color = Color(1, 0.996078, 0.760784, 1)
+light_energy = 6.476
+light_indirect_energy = 3.136
+light_volumetric_fog_energy = 4.774
+light_projector = ExtResource("2_ug810")
+light_size = 0.1
+shadow_enabled = true
+shadow_blur = 5.074
+spot_range = 43.4203
+spot_angle = 29.0292

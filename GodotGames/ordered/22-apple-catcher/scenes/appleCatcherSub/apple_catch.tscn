@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ih3t86vt64a3"]
+
+[ext_resource type="Script" uid="uid://bikvlvqaiw2fh" path="res://scripts/appleCatcherSub/apple_catch.gd" id="1_75hp5"]
+[ext_resource type="Texture2D" uid="uid://dfvgeguslukg7" path="res://sprites/appleCatcher/appleback.png" id="1_d1iob"]
+[ext_resource type="PackedScene" uid="uid://c06h1rpf5pavv" path="res://scenes/appleCatcherSub/basket.tscn" id="3_te2ww"]
+
+[node name="AppleCatch" type="Node2D" unique_id=28971090]
+script = ExtResource("1_75hp5")
+
+[node name="back" type="Sprite2D" parent="." unique_id=911808688]
+position = Vector2(640, 360)
+texture = ExtResource("1_d1iob")
+metadata/_edit_lock_ = true
+
+[node name="basket" parent="." unique_id=328228126 instance=ExtResource("3_te2ww")]
+position = Vector2(661.00006, 595)
+collision_mask = 2
+motion_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1562298734]
+position = Vector2(640, 360)
+enabled = false
+zoom = Vector2(0.9, 0.9)
+metadata/_edit_lock_ = true
+
+[node name="apples" type="Node2D" parent="." unique_id=5438153]
+
+[node name="Timer" type="Timer" parent="." unique_id=1896281992]
+autostart = true
+
+[node name="gravChanger" type="Timer" parent="." unique_id=1971777422]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="gravChanger" to="." method="_on_grav_changer_timeout"]

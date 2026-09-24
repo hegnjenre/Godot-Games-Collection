@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cesr83uelvuwl"]
+
+[ext_resource type="PackedScene" uid="uid://c51mm0wne1iep" path="res://2DAssets/Units/unit_3d.tscn" id="1_vmbj4"]
+[ext_resource type="SpriteFrames" uid="uid://byft6b7p3cp8" path="res://2DAssets/Units/Human/Soldier/soldier_unit.tres" id="2_3u6e3"]
+[ext_resource type="Script" path="res://scripts/soldier_unit.gd" id="3_y77qk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_duppq"]
+size = Vector3(1.79137, 1.61332, 0.095426)
+
+[node name="soldierUnit3D" instance=ExtResource("1_vmbj4")]
+sprite_frames = ExtResource("2_3u6e3")
+animation = &"idle"
+autoplay = "idle"
+script = ExtResource("3_y77qk")
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000190914, -0.648196, -0.000887394)
+shape = SubResource("BoxShape3D_duppq")

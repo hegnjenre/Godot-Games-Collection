@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://mm3ugpyy1hsx"]
+
+[ext_resource type="Script" path="res://Scripts/General/interface.gd" id="1_5uwdg"]
+[ext_resource type="Texture2D" uid="uid://gpb8vog04b6d" path="res://Assets/pngs/ui/arrowButtons/rightArrow.png" id="1_rlnta"]
+[ext_resource type="Texture2D" uid="uid://dh8u84xla5npd" path="res://Assets/pngs/ui/arrowButtons/rightArrowPressed.png" id="2_4j7tq"]
+[ext_resource type="Texture2D" uid="uid://c0miijrovwtix" path="res://Assets/pngs/ui/arrowButtons/leftArrow.png" id="3_qfkhs"]
+[ext_resource type="Texture2D" uid="uid://c8d58tweb0gqp" path="res://Assets/pngs/ui/arrowButtons/leftArrowPressed.png" id="4_280xm"]
+
+[node name="interface" type="Node2D"]
+script = ExtResource("1_5uwdg")
+
+[node name="currentFocusPoint" type="Node2D" parent="."]
+position = Vector2(576, 339)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_lock_ = true
+
+[node name="rightArrow" type="TextureButton" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 1055.0
+offset_top = 275.0
+offset_right = 1119.0
+offset_bottom = 339.0
+texture_normal = ExtResource("1_rlnta")
+texture_pressed = ExtResource("2_4j7tq")
+
+[node name="leftArrow" type="TextureButton" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 33.0
+offset_top = 275.0
+offset_right = 97.0
+offset_bottom = 339.0
+texture_normal = ExtResource("3_qfkhs")
+texture_pressed = ExtResource("4_280xm")
+
+[node name="openShop" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.866
+anchor_top = 0.037
+anchor_right = 0.964
+anchor_bottom = 0.142
+offset_left = 0.36792
+offset_top = 0.0240002
+offset_right = 0.471924
+offset_bottom = -0.0160065
+text = "Open Shop"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="UI/rightArrow" to="." method="_on_right_arrow_pressed"]
+[connection signal="pressed" from="UI/leftArrow" to="." method="_on_left_arrow_pressed"]
+[connection signal="pressed" from="UI/openShop" to="." method="_on_open_shop_pressed"]

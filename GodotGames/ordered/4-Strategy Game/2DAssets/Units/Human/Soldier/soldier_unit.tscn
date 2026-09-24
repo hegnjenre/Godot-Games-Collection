@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgijoo5cocynm"]
+
+[ext_resource type="PackedScene" uid="uid://beph4i0jciplg" path="res://2DAssets/Units/unit.tscn" id="1_ffuo0"]
+[ext_resource type="SpriteFrames" uid="uid://byft6b7p3cp8" path="res://2DAssets/Units/Human/Soldier/soldier_unit.tres" id="2_grr2m"]
+[ext_resource type="Shape2D" uid="uid://bewt3bjbr50qo" path="res://2DAssets/Units/Human/Soldier/soldierCollisionShape.tres" id="2_wciuh"]
+
+[node name="soldierUnit" instance=ExtResource("1_ffuo0")]
+setName = "soldierUnit"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_grr2m")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-3, -0.5)
+shape = ExtResource("2_wciuh")

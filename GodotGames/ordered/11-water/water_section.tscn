@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkha17f3pb68p"]
+
+[ext_resource type="Script" path="res://water_section.gd" id="1_cx5s0"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_kvnp6"]
+center_offset = Vector3(0, -0.5, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0vbkw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4h0v"]
+size = Vector2(1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_c4qo7"]
+center_offset = Vector3(0, -0.5, 0)
+
+[node name="waterSection" type="Node2D" groups=["water"]]
+script = ExtResource("1_cx5s0")
+height = 4.4
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." groups=["water"]]
+mesh = SubResource("QuadMesh_kvnp6")
+texture = SubResource("PlaceholderTexture2D_0vbkw")
+
+[node name="Area2D" type="Area2D" parent="MeshInstance2D" groups=["water"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/Area2D" groups=["water"]]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_f4h0v")
+metadata/_edit_lock_ = true
+
+[node name="DEBUGMESH" type="MeshInstance2D" parent="." groups=["water"]]
+visible = false
+position = Vector2(32, 0)
+scale = Vector2(13.75, 1)
+mesh = SubResource("QuadMesh_c4qo7")

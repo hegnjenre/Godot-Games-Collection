@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://p481dywurcjk"]
+
+[ext_resource type="PackedScene" uid="uid://btxrttu12hp6n" path="res://scenes/puzzles/master_wire.tscn" id="1_7i1fc"]
+[ext_resource type="SpriteFrames" uid="uid://brp0jb10go11k" path="res://sprites/spriteframes/wires/T.tres" id="2_ttujv"]
+
+[node name="TWire" unique_id=781965506 instance=ExtResource("1_7i1fc")]
+rotatable = true
+maxRot = 4
+validDirections = {
+"down": true,
+"left": true,
+"right": true,
+"up": false
+}
+rotatedDirections = {
+0: {
+"down": true,
+"left": true,
+"right": true,
+"up": false
+},
+1: {
+"down": true,
+"left": true,
+"right": false,
+"up": true
+},
+2: {
+"down": false,
+"left": true,
+"right": true,
+"up": true
+},
+3: {
+"down": true,
+"left": false,
+"right": true,
+"up": true
+}
+}
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1644814822]
+sprite_frames = ExtResource("2_ttujv")
+animation = &"0"
+autoplay = "0"

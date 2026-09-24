@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn6oxb0j2x7kb"]
+
+[ext_resource type="Script" path="res://Minor Scenes/Blocks/defaultBlock.gd" id="1_vmymq"]
+[ext_resource type="Texture2D" uid="uid://3jngh48al8f3" path="res://Sprites/ArenaSprites/blocks/defaultBlock.png" id="2_mlmvg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60ikf"]
+size = Vector2(36, 24)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y7616"]
+font_size = 10
+
+[node name="defaultBlock" type="StaticBody2D" groups=["blocks"]]
+script = ExtResource("1_vmymq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mlmvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_60ikf")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 33.0
+offset_bottom = 16.0
+label_settings = SubResource("LabelSettings_y7616")

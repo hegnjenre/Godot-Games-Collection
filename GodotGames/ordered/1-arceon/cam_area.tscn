@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2mbgdqhbqx4j"]
+
+[ext_resource type="Script" path="res://camArea.gd" id="1_7blxv"]
+
+[node name="camArea" type="Area3D"]
+script = ExtResource("1_7blxv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

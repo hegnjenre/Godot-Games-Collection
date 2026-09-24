@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxmjx5y1i2u1o"]
+
+[ext_resource type="Script" path="res://scenes/modifier.gd" id="1_mo6t0"]
+
+[node name="modifier" type="Node2D"]
+script = ExtResource("1_mo6t0")
+
+[node name="modSmall" type="Sprite2D" parent="."]
+
+[node name="modBig" type="Sprite2D" parent="."]

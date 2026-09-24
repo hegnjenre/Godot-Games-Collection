@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7b55p7gpcf2t"]
+
+[ext_resource type="PackedScene" uid="uid://dn6oxb0j2x7kb" path="res://Minor Scenes/Blocks/defaultBlock.tscn" id="1_mxxlp"]
+[ext_resource type="Texture2D" uid="uid://cr6qv2534ev7d" path="res://Sprites/ArenaSprites/blocks/ExtraBallBlock.png" id="2_mqjsd"]
+
+[node name="defaultBlock" instance=ExtResource("1_mxxlp")]
+pName = "EB"
+bits = 30
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_mqjsd")

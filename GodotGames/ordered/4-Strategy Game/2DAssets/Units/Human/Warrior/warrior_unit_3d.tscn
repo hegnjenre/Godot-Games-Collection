@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3buaa4n5lxd5"]
+
+[ext_resource type="PackedScene" uid="uid://c51mm0wne1iep" path="res://2DAssets/Units/unit_3d.tscn" id="1_0dxeg"]
+[ext_resource type="SpriteFrames" uid="uid://cheq5vevwhr47" path="res://2DAssets/Units/Human/Warrior/warrior_unit.tres" id="2_5ptgi"]
+[ext_resource type="Shape3D" uid="uid://v14mev2uis4t" path="res://2DAssets/Units/generalCollisionShape3D.tres" id="3_ahosn"]
+[ext_resource type="Script" path="res://2DAssets/Units/Human/Warrior/warrior_unit_3d.gd" id="3_wivht"]
+
+[node name="warriorUnit3D" instance=ExtResource("1_0dxeg")]
+sprite_frames = ExtResource("2_5ptgi")
+animation = &"idle"
+script = ExtResource("3_wivht")
+setName = "warriorUnit"
+health = 14
+damage = 2
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.492259, 0)
+shape = ExtResource("3_ahosn")
+
+[node name="unitName" parent="unitUI" index="1"]
+text = "Warrior"
+
+[node name="unitInfo" parent="unitUI" index="2"]
+text = "The warrior will attack any joined three cells in a row on the opposite of its own position on the board."

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn2aen62hesos"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_cos7b"]
+[ext_resource type="Texture2D" uid="uid://cqx6j5a18l1ts" path="res://sprites/weapon/arrowDefault.png" id="2_a56ox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r546d"]
+size = Vector2(13, 5)
+
+[node name="bullet" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+mass = 0.04
+gravity_scale = 0.0
+script = ExtResource("1_cos7b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 1)
+texture = ExtResource("2_a56ox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_r546d")
+
+[node name="killTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[connection signal="timeout" from="killTimer" to="." method="_on_kill_timer_timeout"]

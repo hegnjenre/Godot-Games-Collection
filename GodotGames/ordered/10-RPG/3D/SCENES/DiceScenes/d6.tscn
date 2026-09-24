@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://diw60dgxnivtf"]
+
+[ext_resource type="Script" path="res://3D/SCENES/DiceScenes/dice.gd" id="1_gsfwj"]
+[ext_resource type="PackedScene" uid="uid://0lbvif18ab26" path="res://3D/SCENES/DiceScenes/objs/dice.glb" id="2_n5sew"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wy0vb"]
+bounce = 0.41
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_434fk"]
+size = Vector3(2, 2, 2)
+
+[node name="D6" type="RigidBody3D"]
+mass = 0.42
+physics_material_override = SubResource("PhysicsMaterial_wy0vb")
+script = ExtResource("1_gsfwj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_434fk")
+
+[node name="dice" parent="." instance=ExtResource("2_n5sew")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="1" type="RayCast3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.5, 0, 0)
+target_position = Vector3(-1, 0, 0)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="2" type="RayCast3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0.5)
+target_position = Vector3(0, 0, 1)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="3" type="RayCast3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.5, 0)
+target_position = Vector3(0, 1, 0)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="4" type="RayCast3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.5, 0)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="5" type="RayCast3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, -0.5)
+target_position = Vector3(0, 0, -1)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="6" type="RayCast3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 0, 0)
+target_position = Vector3(1, 0, 0)
+collision_mask = 8
+hit_from_inside = true

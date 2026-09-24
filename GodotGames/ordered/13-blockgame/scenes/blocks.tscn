@@ -1,0 +1,192 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqtkc5l0h8wgr"]
+
+[ext_resource type="Script" path="res://scenes/blocks.gd" id="1_ylu5t"]
+[ext_resource type="PackedScene" uid="uid://b8pdcado4o4v6" path="res://scenes/outline_wall.tscn" id="2_d2r41"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8pgsk"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_b0ho7"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_wrvro"]
+font_size = 24
+
+[node name="blocks" type="Node2D"]
+script = ExtResource("1_ylu5t")
+metadata/_edit_lock_ = true
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(578, 639)
+zoom = Vector2(0.5, 0.5)
+metadata/_edit_lock_ = true
+
+[node name="outline" type="Node2D" parent="."]
+position = Vector2(872, 637)
+
+[node name="outlineWallLeft" parent="outline" instance=ExtResource("2_d2r41")]
+position = Vector2(-868, 3)
+metadata/_edit_lock_ = true
+
+[node name="outlineWallRight" parent="outline" instance=ExtResource("2_d2r41")]
+position = Vector2(871, 2)
+metadata/_edit_lock_ = true
+
+[node name="outlineWallTop" parent="outline" instance=ExtResource("2_d2r41")]
+position = Vector2(1, -633)
+rotation = -1.5708
+metadata/_edit_lock_ = true
+
+[node name="outlineWallBottom" parent="outline" instance=ExtResource("2_d2r41")]
+position = Vector2(1, 638)
+rotation = 1.5708
+metadata/_edit_lock_ = true
+
+[node name="outlineWallLeftTop" parent="outline" instance=ExtResource("2_d2r41")]
+position = Vector2(-593, -473)
+rotation = 1.0472
+metadata/_edit_lock_ = true
+
+[node name="outlineWallRightTop" parent="outline" instance=ExtResource("2_d2r41")]
+position = Vector2(595, -474)
+rotation = -1.0472
+metadata/_edit_lock_ = true
+
+[node name="outlineWallLeftBottom" parent="outline" instance=ExtResource("2_d2r41")]
+position = Vector2(-593, 479)
+rotation = -1.0472
+metadata/_edit_lock_ = true
+
+[node name="outlineWallrightBottom" parent="outline" instance=ExtResource("2_d2r41")]
+position = Vector2(596, 479)
+rotation = 1.0472
+metadata/_edit_lock_ = true
+
+[node name="leftSpawn" type="Node2D" parent="."]
+position = Vector2(295, 640)
+metadata/_edit_lock_ = true
+
+[node name="rightSpawn" type="Node2D" parent="."]
+position = Vector2(1485, 640)
+metadata/_edit_lock_ = true
+
+[node name="blockGameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -702.0
+offset_top = -81.0
+offset_right = 1858.0
+offset_bottom = 1359.0
+metadata/_edit_lock_ = true
+
+[node name="title" type="Label" parent="blockGameUI"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 81.0
+offset_right = 611.0
+offset_bottom = 167.0
+text = "THE BLOCK DOME"
+label_settings = SubResource("LabelSettings_8pgsk")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="blockDetails" type="Label" parent="blockGameUI"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 210.0
+offset_right = 300.0
+offset_bottom = 258.0
+text = "Block Details:"
+label_settings = SubResource("LabelSettings_b0ho7")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="start" type="Button" parent="blockGameUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.075
+anchor_top = 0.847
+anchor_right = 0.174
+anchor_bottom = 0.903
+offset_left = 1.0
+offset_top = -0.680054
+offset_right = 0.559967
+offset_bottom = 0.679932
+text = "Start
+"
+metadata/_edit_lock_ = true
+
+[node name="editBlock" type="Button" parent="blockGameUI"]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 1119.0
+offset_right = 446.0
+offset_bottom = 1201.0
+text = "Edit Block"
+metadata/_edit_lock_ = true
+
+[node name="blockView" type="Node2D" parent="blockGameUI"]
+position = Vector2(311, 466)
+metadata/_edit_lock_ = true
+
+[node name="blockViewUI" type="Control" parent="blockGameUI"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="leftattack" type="Button" parent="blockGameUI/blockViewUI"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 454.0
+offset_right = 187.0
+offset_bottom = 480.0
+metadata/_edit_lock_ = true
+
+[node name="rightattack" type="Button" parent="blockGameUI/blockViewUI"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 453.0
+offset_right = 475.0
+offset_bottom = 479.0
+metadata/_edit_lock_ = true
+
+[node name="topattack" type="Button" parent="blockGameUI/blockViewUI"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 312.0
+offset_right = 327.0
+offset_bottom = 338.0
+metadata/_edit_lock_ = true
+
+[node name="bottomattack" type="Button" parent="blockGameUI/blockViewUI"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 610.0
+offset_right = 327.0
+offset_bottom = 636.0
+metadata/_edit_lock_ = true
+
+[node name="modifiers" type="Label" parent="blockGameUI/blockViewUI"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 720.0
+offset_right = 209.0
+offset_bottom = 757.0
+text = "Modifiers:"
+label_settings = SubResource("LabelSettings_wrvro")
+metadata/_edit_lock_ = true
+
+[node name="modStart" type="Node2D" parent="blockGameUI/blockViewUI"]
+position = Vector2(92, 785)
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="blockGameUI/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="blockGameUI/editBlock" to="." method="_on_edit_block_pressed"]
+[connection signal="pressed" from="blockGameUI/blockViewUI/leftattack" to="." method="_on_leftattack_pressed"]
+[connection signal="pressed" from="blockGameUI/blockViewUI/rightattack" to="." method="_on_rightattack_pressed"]
+[connection signal="pressed" from="blockGameUI/blockViewUI/topattack" to="." method="_on_topattack_pressed"]
+[connection signal="pressed" from="blockGameUI/blockViewUI/bottomattack" to="." method="_on_bottomattack_pressed"]

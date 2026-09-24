@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dov5uh2gmrrq8"]
+
+[ext_resource type="Script" uid="uid://bfg2iw3rjyijx" path="res://scenes/friendly/building/resource_channel.gd" id="1_2xuvj"]
+
+[node name="resourceChannel" type="Node2D" unique_id=60427059]
+script = ExtResource("1_2xuvj")
+
+[node name="sending" type="Node2D" parent="." unique_id=108084071]
+
+[node name="recieving" type="Node2D" parent="." unique_id=2074773637]
+
+[node name="paths" type="Node2D" parent="." unique_id=1961672404]
