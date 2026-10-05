@@ -2,10 +2,9 @@ Godot is a game engine and editor in the same vein as Unity, though working slig
 they are written in Godot's own GDScript programming language, which is similar to java and python. Running these games is only possible within the Godot Engine, but the GDScript files can be opened in Notepad++ or other text editors.
 
 The ordered file is ordered from 1, oldest, to 22, newest.
-Godot files are split into different file types,
+Godot files are split into different file types:
 .gd files are GDScript files - where the code is held,
-.tscn files are the 'Scene' files used by the Godot engine to build the game,
-.res files
+.tscn files are the 'Scene' files used by the Godot engine to build the game.
 
 I've been making Games using Godot since around 2019, though that isn't represented here as my hard drive was corrupted in early 2024!
 
